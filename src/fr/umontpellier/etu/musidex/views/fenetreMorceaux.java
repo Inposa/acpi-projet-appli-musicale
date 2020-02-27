@@ -1,4 +1,4 @@
-package fr.umontpellier.etu.musidex.views;
+package main.java.fr.umontpellier.etu.musidex.views;
 
 import java.awt.EventQueue;
 import java.net.*;
@@ -130,7 +130,11 @@ public class fenetreMorceaux {
 		JButton btOuvrirPartition = new JButton("Ouvrir la partition");
 		btOuvrirPartition.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				//TODO: Ouvre le lien d'un fichier pdf comme le lien youtube
+				try {
+					//TODO: faire cela avec l'objet recup en param
+					String lien = "https://sheets-piano.ru/wp-content/uploads/2012/02/Rick-Astley-Never-Gonna-Give-You-Up.pdf";
+					Desktop.getDesktop().browse(new URL(lien).toURI());
+				} catch (Exception e1) {}
 			}
 		});
 		btOuvrirPartition.setBounds(320, 96, 190, 25);
@@ -139,9 +143,15 @@ public class fenetreMorceaux {
 		JButton btOuvrirParole = new JButton("Ouvrir les paroles");
 		btOuvrirParole.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				//TODO: Ouvre le lien d'un fichier pdf comme le lien youtube
+				try {
+					//TODO: faire cela avec l'objet recup en param
+					String lien = "https://www.azlyrics.com/lyrics/rickastley/nevergonnagiveyouup.html";
+				Desktop.getDesktop().browse(new URL(lien).toURI());
+				} catch (Exception e1) {}
+				
 			}
 		});
+		
 		btOuvrirParole.setBounds(522, 96, 190, 25);
 		frame.getContentPane().add(btOuvrirParole);
 		
