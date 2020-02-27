@@ -14,8 +14,8 @@ public class Morceau implements I_Morceau {
 	
 	private String lienYT;
 	
-	public Morceau(String titre, String interprete,Tonalite tonalite, float duree) {
-		this.id = LAST_ID++;
+	public Morceau(int id, String titre, String interprete,Tonalite tonalite, float duree) {
+		this.id = id;
 		this.titre = titre;
 		this.interprete = interprete;
 		this.tonalite = tonalite;
@@ -25,6 +25,11 @@ public class Morceau implements I_Morceau {
 		
 		this.lienYT = null;
 	}
+	
+	public Morceau(String titre, String interprete,Tonalite tonalite, float duree) {
+		this(++LAST_ID, titre, interprete, tonalite, 0);
+	}
+
 	public Morceau(String titre, String interprete, Tonalite tonalite) {
 		this(titre, interprete, tonalite, 0);
 	}
@@ -75,7 +80,7 @@ public class Morceau implements I_Morceau {
 	public void setLienYT(String lienYT) {
 		this.lienYT = lienYT;
 	}
-	
+
 	@Override
 	public int getId() {
 		return this.id;
@@ -86,5 +91,5 @@ public class Morceau implements I_Morceau {
 		return "Morceau: " + this.titre + "| Interprète:" + this.interprete + "| Tonalité:" + this.tonalite;
 	}*/
 
-	
+
 }
