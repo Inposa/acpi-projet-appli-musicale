@@ -1,4 +1,4 @@
-package main.java.fr.umontpellier.etu.musidex.views;
+package fr.umontpellier.etu.musidex.views;
 
 import java.awt.EventQueue;
 import java.net.*;
