@@ -1,0 +1,20 @@
+CREATE SEQUENCE seqIdMorceau;
+
+CREATE TABLE Morceaux (
+	id NUMBER(5),
+	titre VARCHAR(50),
+	interprete VARCHAR(50),
+	tonalite VARCHAR(10),
+	duree FLOAT(2),
+	
+	CONSTRAINT pk_Morceaux PRIMARY KEY (id)
+)
+
+CREATE OR REPLACE PROCEDURE insererMorceau(p_titre IN Morceaux.titre%TYPE,
+								p_interprete IN Morceaux.interprete%TYPE,
+								p_tonalite IN Morceaux.tonalite%TYPE,
+								p_duree IN Morceaux.duree%TYPE) IS
+BEGIN
+	INSERT INTO Morceaux(id, titre, interprete, tonalite, duree)
+		VALUES (seqIdMorceau.NEXTVAL, p_titre, p_interprete, p_tonalite, p_duree);
+END;
