@@ -1,6 +1,7 @@
 package fr.iut.entities;
 
 import java.awt.EventQueue;
+import java.net.*;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -16,6 +17,8 @@ import java.awt.event.ActionEvent;
 import javax.swing.JTextField;
 import java.awt.Font;
 import java.awt.Canvas;
+import java.awt.Desktop;
+
 import javax.swing.JComboBox;
 import javax.swing.SwingConstants;
 import javax.swing.DropMode;
@@ -64,12 +67,18 @@ public class fenetreMorceaux {
 		btAjouterMorceau.setBounds(224, 404, 190, 25);
 		btAjouterMorceau.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				//TODO: Créé le morceau si text bt = "Ajouter le morceau" sinon modifié le morceau.
 			}
 		});
 		frame.getContentPane().setLayout(null);
 		frame.getContentPane().add(btAjouterMorceau);
 		
 		JButton btAnnuler = new JButton("Annuler");
+		btAnnuler.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				//TODO: Annule l'enregistrement du morceau si text bt = Annule sinon Supprime morceau existant.
+			}
+		});
 		btAnnuler.setEnabled(false);
 		btAnnuler.setBounds(425, 404, 190, 25);
 		frame.getContentPane().add(btAnnuler);
@@ -107,14 +116,32 @@ public class fenetreMorceaux {
 		frame.getContentPane().add(lblTonalitJoue);
 		
 		JButton btVidDuMorceau = new JButton("Vidéo du morceau");
+		btVidDuMorceau.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				try {
+					String lien = "https://www.youtube.com/watch?v=dQw4w9WgXcQ";
+				    Desktop.getDesktop().browse(new URL(lien).toURI());
+				} catch (Exception e1) {}
+			}
+		});
 		btVidDuMorceau.setBounds(118, 96, 190, 25);
 		frame.getContentPane().add(btVidDuMorceau);
 		
 		JButton btOuvrirPartition = new JButton("Ouvrir la partition");
+		btOuvrirPartition.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				//TODO: Ouvre le lien d'un fichier pdf comme le lien youtube
+			}
+		});
 		btOuvrirPartition.setBounds(320, 96, 190, 25);
 		frame.getContentPane().add(btOuvrirPartition);
 		
 		JButton btOuvrirParole = new JButton("Ouvrir les paroles");
+		btOuvrirParole.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				//TODO: Ouvre le lien d'un fichier pdf comme le lien youtube
+			}
+		});
 		btOuvrirParole.setBounds(522, 96, 190, 25);
 		frame.getContentPane().add(btOuvrirParole);
 		
