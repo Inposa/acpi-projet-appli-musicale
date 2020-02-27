@@ -7,6 +7,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import fr.iut.musidex.modele.I_Morceau;
+
 public class MorceauDAO {
 	
 	private static MorceauDAO instance;
