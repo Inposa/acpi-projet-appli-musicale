@@ -4,10 +4,13 @@ public class Morceau implements I_Morceau {
 	private String titre;
 	private String interprete;
 	
-	private String tonalite;
+	private Tonalite tonalite;
 	
-	public Morceau(String titre, String interprete) {
+	public Morceau(String titre, String interprete,Tonalite tonalite) {
+		this.titre = titre;
+		this.interprete = interprete;
 		
+		this.tonalite = tonalite;
 	}
 	
 	@Override
@@ -20,7 +23,6 @@ public class Morceau implements I_Morceau {
 		this.titre = nom;		
 	}
 	
-
 	@Override
 	public String getInterprete() {
 		return interprete;
@@ -31,8 +33,4 @@ public class Morceau implements I_Morceau {
 		this.interprete = interprete;
 	}
 
-	
-	
-	
-	
 }
