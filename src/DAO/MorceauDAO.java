@@ -55,7 +55,7 @@ public class MorceauDAO {
 		try {
 			st = cn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
 			rs = st.executeQuery("SELECT m.* FROM Morceaux m");
-			cst = cn.prepareCall("{CALL insererMorceau(?,?,?)}");
+			cst = cn.prepareCall("{CALL insererMorceau(?,?,?,?)}");
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
