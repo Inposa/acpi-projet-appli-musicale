@@ -1,4 +1,4 @@
-package main.java.fr.umontpellier.etu.musidex.modele;
+package fr.umontpellier.etu.musidex.modele;
 
 public enum Tonalite {
 	C,

@@ -1,4 +1,4 @@
-package main.java.fr.umontpellier.etu.musidex.DAO;
+package fr.umontpellier.etu.musidex.DAO;
 
 import java.sql.CallableStatement;
 import java.sql.Connection;
@@ -7,7 +7,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-import main.java.fr.umontpellier.etu.musidex.modele.I_Morceau;
+import fr.umontpellier.etu.musidex.modele.I_Morceau;
 
 public class MorceauDAO {
 	
@@ -68,7 +68,8 @@ public class MorceauDAO {
 	public void fermerConnexion() {
 		try {
 			rs.close();
-			cst.close();
+			cstInsererMorceau.close();
+			cstModifierMorceau.close();
 			st.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -77,18 +78,18 @@ public class MorceauDAO {
 	
 	
 	
-	public void insererMorceau(I_Morceau morceau) {
-		cstInsererMorceau.setString(1, morceau.getTitre());
+	public void insererMorceau(I_Morceau morceau) throws SQLException {
+		cstInsererMorceau.setString(1, morceau.getNom());
 		cstInsererMorceau.setString(2, morceau.getInterprete());
-		cstInsererMorceau.setString(3, morceau.getTonalite());
+		cstInsererMorceau.setString(3, morceau.getTonalite().toString());
 		cstInsererMorceau.setFloat(4, morceau.getDuree());
 		cstInsererMorceau.execute();
 	}
 	
-	public void modifierMorceau(I_Morceau morceau) {
-		cstModifierMorceau.setString(1, morceau.getTitre());
+	public void modifierMorceau(I_Morceau morceau) throws SQLException {
+		cstModifierMorceau.setString(1, morceau.getNom());
 		cstModifierMorceau.setString(2, morceau.getInterprete());
-		cstModifierMorceau.setString(3, morceau.getTonalite());
+		cstModifierMorceau.setString(3, morceau.getTonalite().toString());
 		cstModifierMorceau.setFloat(4, morceau.getDuree());
 		cstModifierMorceau.execute();
 	}
