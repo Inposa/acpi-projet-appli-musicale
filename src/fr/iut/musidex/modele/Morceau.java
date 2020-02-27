@@ -6,11 +6,23 @@ public class Morceau implements I_Morceau {
 	
 	private Tonalite tonalite;
 	
-	public Morceau(String titre, String interprete,Tonalite tonalite) {
+	private float duree;
+	
+	public Morceau(String titre, String interprete,Tonalite tonalite, float duree) {
 		this.titre = titre;
 		this.interprete = interprete;
-		
 		this.tonalite = tonalite;
+		
+		//Durée de 0 par défaut
+		this.duree = duree;
+	}
+	
+	public Morceau(String titre, String interprete, Tonalite tonalite) {
+		this(titre, interprete, tonalite, 0);
+	}
+	
+	public Morceau(String titre, String interprete) {
+		this(titre, interprete, Tonalite.C);
 	}
 	
 	@Override
@@ -47,5 +59,17 @@ public class Morceau implements I_Morceau {
 	public String toString() {
 		return "Morceau: " + this.titre + "| Interprète:" + this.interprete + "| Tonalité:" + this.tonalite;
 	}
+
+	@Override
+	public float getDuree() {
+		return this.duree;
+	}
+
+	@Override
+	public void setDuree(float duree) {
+		this.duree = duree;
+		
+	}
+
 
 }

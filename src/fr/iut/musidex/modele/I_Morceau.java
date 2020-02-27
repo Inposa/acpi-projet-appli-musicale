@@ -9,4 +9,9 @@ public interface I_Morceau {
     
     public Tonalite getTonalite();
     public void setTonalite(Tonalite tonalite);    
+    
+    public float getDuree();
+    public void setDuree(float duree);
+    
+    
 }
