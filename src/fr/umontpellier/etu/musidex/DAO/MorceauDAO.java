@@ -16,7 +16,10 @@ public class MorceauDAO {
 	private Statement st;
 	private CallableStatement cstInsererMorceau;
 	private CallableStatement cstModifierMorceau;
+	private CallableStatement cstSupprimerMorceau;
 	private ResultSet rs;
+	
+	private String getMorceauxQuery = "SELECT m.* FROM Morceaux m";
 	
 	private MorceauDAO() {
 		ouvrirConnexion();
@@ -57,9 +60,10 @@ public class MorceauDAO {
 	private void creationDesStatements() {
 		try {
 			st = cn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
-			rs = st.executeQuery("SELECT m.* FROM Morceaux m");
-			cstInsererMorceau = cn.prepareCall("{CALL insererMorceau(?,?,?,?)}");
-			cstModifierMorceau = cn.prepareCall("{CALL modifierMorceau(?,?,?,?)}");
+			rs = st.executeQuery(getMorceauxQuery);
+			cstInsererMorceau = cn.prepareCall("{CALL insererMorceau(?,?,?,?,?)}");
+			cstModifierMorceau = cn.prepareCall("{CALL modifierMorceau(?,?,?,?,?)}");
+			cstModifierMorceau = cn.prepareCall("{CALL supprimerMorceau(?)");
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -75,27 +79,40 @@ public class MorceauDAO {
 			e.printStackTrace();
 		}
 	}
-	
-	
+
 	
 	public void insererMorceau(I_Morceau morceau) throws SQLException {
-		cstInsererMorceau.setString(1, morceau.getNom());
-		cstInsererMorceau.setString(2, morceau.getInterprete());
-		cstInsererMorceau.setString(3, morceau.getTonalite().toString());
-		cstInsererMorceau.setFloat(4, morceau.getDuree());
+		cstInsererMorceau.setInt(1, morceau.getId());
+		cstInsererMorceau.setString(2, morceau.getNom());
+		cstInsererMorceau.setString(3, morceau.getInterprete());
+		cstInsererMorceau.setString(4, morceau.getTonalite().toString());
+		cstInsererMorceau.setFloat(5, morceau.getDuree());
 		cstInsererMorceau.execute();
+		getMorceauxFromDB();
 	}
 	
 	public void modifierMorceau(I_Morceau morceau) throws SQLException {
+		cstModifierMorceau.setInt(1, morceau.getId());
 		cstModifierMorceau.setString(1, morceau.getNom());
 		cstModifierMorceau.setString(2, morceau.getInterprete());
 		cstModifierMorceau.setString(3, morceau.getTonalite().toString());
 		cstModifierMorceau.setFloat(4, morceau.getDuree());
 		cstModifierMorceau.execute();
+		getMorceauxFromDB();
 	}
 	
-	public void supprimerMorceau(I_Morceau morceau) {
-		
+	public void supprimerMorceau(I_Morceau morceau) throws SQLException {
+		cstSupprimerMorceau.setInt(1, morceau.getId());
+		cstSupprimerMorceau.execute();
+		getMorceauxFromDB();
+	}
+	
+	private void getMorceauxFromDB() {
+		try {
+			rs = st.executeQuery(getMorceauxQuery);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
 	
 

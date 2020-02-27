@@ -69,11 +69,25 @@ public class Morceau implements I_Morceau {
 		this.duree = duree;
 	}
 
+<<<<<<< HEAD
 	public String getLienYT() {
 		return lienYT;
 	}
 	public void setLienYT(String lienYT) {
 		this.lienYT = lienYT;
 	}
+=======
+	@Override
+	public int getId() {
+		return this.id;
+	}
+
+	/*@Override
+	public String toString() {
+		return "Morceau: " + this.titre + "| Interprète:" + this.interprete + "| Tonalité:" + this.tonalite;
+	}*/
+
+	
+>>>>>>> branch 'edition-morceau' of https://github.com/Inposa/acpi-projet-appli-musicale.git
 
 }

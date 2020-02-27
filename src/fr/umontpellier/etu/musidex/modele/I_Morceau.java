@@ -12,6 +12,7 @@ public interface I_Morceau {
     
     public float getDuree();
     public void setDuree(float duree);
+	public int getId();
     
     
 }
