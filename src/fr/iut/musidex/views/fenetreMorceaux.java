@@ -151,11 +151,12 @@ public class fenetreMorceaux {
 		JComboBox cbTonOriginale = new JComboBox();
 		cbTonOriginale.setBounds(453, 46, 54, 20);
 		frame.getContentPane().add(cbTonOriginale);
+		//TODO: remplir combo box avec enum tonalités.
 		
 		JComboBox cbTonJouee = new JComboBox();
 		cbTonJouee.setBounds(646, 46, 54, 20);
 		frame.getContentPane().add(cbTonJouee);
-		//TODO: remplir combo box tonalités.
+		//TODO: remplir combo box avec enum tonalités.
 		
 		JButton btnModifMode = new JButton("Modif Mode");
 		btnModifMode.addActionListener(new ActionListener() {
