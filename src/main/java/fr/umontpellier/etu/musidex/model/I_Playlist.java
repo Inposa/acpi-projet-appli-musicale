@@ -1,4 +1,4 @@
-package fr.iut.musidex.modele;
+package fr.umontpellier.etu.musidex.model;
 
 import java.util.List;
 
