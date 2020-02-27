@@ -1,4 +1,4 @@
-package Fenetre;
+package main.java.fr.umontpellier.etu.musidex.views;
 
 import java.awt.EventQueue;
 import java.net.*;
@@ -23,9 +23,6 @@ import javax.swing.JComboBox;
 import javax.swing.SwingConstants;
 import javax.swing.DropMode;
 import javax.swing.JTextArea;
-import javax.swing.JToggleButton;
-import javax.swing.AbstractAction;
-import javax.swing.Action;
 
 public class fenetreMorceaux {
 
@@ -151,33 +148,9 @@ public class fenetreMorceaux {
 		JComboBox cbTonOriginale = new JComboBox();
 		cbTonOriginale.setBounds(453, 46, 54, 20);
 		frame.getContentPane().add(cbTonOriginale);
-		//TODO: remplir combo box avec enum tonalités.
 		
 		JComboBox cbTonJouee = new JComboBox();
 		cbTonJouee.setBounds(646, 46, 54, 20);
 		frame.getContentPane().add(cbTonJouee);
-		//TODO: remplir combo box avec enum tonalités.
-		
-		JButton btnModifMode = new JButton("Modif Mode");
-		btnModifMode.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				if(btnModifMode.getText() == "Modif Mode")
-				{
-					btAjouterMorceau.setText("Modifier morceau");
-					btAnnuler.setText("Supprimer morceau");
-					btnModifMode.setText("Add Mode");
-				}
-				else
-				{
-					btAjouterMorceau.setText("Ajouter morceau");
-					btAnnuler.setText("Annuler");
-					btnModifMode.setText("Modif Mode");
-				}
-				
-			}
-		});
-		btnModifMode.setBounds(12, 404, 117, 25);
-		frame.getContentPane().add(btnModifMode);
 	}
-	
 }

@@ -1,4 +1,4 @@
-package fr.iut.musidex.DAO;
+package main.java.fr.umontpellier.etu.musidex.DAO;
 
 import java.sql.CallableStatement;
 import java.sql.Connection;
@@ -7,7 +7,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-import fr.iut.musidex.modele.I_Morceau;
+import main.java.fr.umontpellier.etu.musidex.modele.I_Morceau;
 
 public class MorceauDAO {
 	
