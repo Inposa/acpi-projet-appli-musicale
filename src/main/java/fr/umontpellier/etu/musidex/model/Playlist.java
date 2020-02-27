@@ -48,4 +48,5 @@ public class Playlist implements I_Playlist{
     public void supprimerMorceau(I_Morceau morceau) {
         morceaux.remove(morceau);
     }
+
 }
