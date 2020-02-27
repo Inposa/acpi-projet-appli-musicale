@@ -43,5 +43,9 @@ public class Morceau implements I_Morceau {
 		this.tonalite = tonalite;
 		
 	}
+	
+	public String toString() {
+		return "Morceau: " + this.titre + "| Interprète:" + this.interprete + "| Tonalité:" + this.tonalite;
+	}
 
 }
