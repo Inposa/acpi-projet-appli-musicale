@@ -1,4 +1,4 @@
-package fr.iut.musidex.modele;
+package fr.umontpellier.etu.musidex.modele;
 
 public interface I_Playlist {
     int getId();

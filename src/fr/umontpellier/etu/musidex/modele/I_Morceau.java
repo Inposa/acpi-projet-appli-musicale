@@ -1,4 +1,4 @@
-package fr.iut.musidex.modele;
+package fr.umontpellier.etu.musidex.modele;
 
 public interface I_Morceau {
     public String getNom();
@@ -12,6 +12,7 @@ public interface I_Morceau {
     
     public float getDuree();
     public void setDuree(float duree);
+	public int getId();
     
     
 }

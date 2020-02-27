@@ -1,4 +1,4 @@
-package fr.iut.musidex.DAO;
+package fr.umontpellier.etu.musidex.DAO;
 
 import java.sql.CallableStatement;
 import java.sql.Connection;
@@ -7,7 +7,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-import fr.iut.musidex.modele.I_Morceau;
+import fr.umontpellier.etu.musidex.modele.I_Morceau;
 
 public class MorceauDAO {
 	
@@ -79,31 +79,30 @@ public class MorceauDAO {
 			e.printStackTrace();
 		}
 	}
+
 	
-	
-	
-	public void insererMorceau(I_Morceau morceau) {
-		cstInsererMorceau.setString(1, morceau.getId());
-		cstInsererMorceau.setString(2, morceau.getTitre());
-		cstInsererMorceau.setString(4, morceau.getInterprete());
+	public void insererMorceau(I_Morceau morceau) throws SQLException {
+		cstInsererMorceau.setInt(1, morceau.getId());
+		cstInsererMorceau.setString(2, morceau.getNom());
+		cstInsererMorceau.setString(3, morceau.getInterprete());
 		cstInsererMorceau.setString(4, morceau.getTonalite().toString());
 		cstInsererMorceau.setFloat(5, morceau.getDuree());
 		cstInsererMorceau.execute();
 		getMorceauxFromDB();
 	}
 	
-	public void modifierMorceau(I_Morceau morceau) {
-		cstModifierMorceau.setString(1, morceau.getId());
-		cstModifierMorceau.setString(2, morceau.getTitre());
-		cstModifierMorceau.setString(3, morceau.getInterprete());
-		cstModifierMorceau.setString(4, morceau.getTonalite().toString());
-		cstModifierMorceau.setFloat(5, morceau.getDuree());
+	public void modifierMorceau(I_Morceau morceau) throws SQLException {
+		cstModifierMorceau.setInt(1, morceau.getId());
+		cstModifierMorceau.setString(1, morceau.getNom());
+		cstModifierMorceau.setString(2, morceau.getInterprete());
+		cstModifierMorceau.setString(3, morceau.getTonalite().toString());
+		cstModifierMorceau.setFloat(4, morceau.getDuree());
 		cstModifierMorceau.execute();
 		getMorceauxFromDB();
 	}
 	
-	public void supprimerMorceau(I_Morceau morceau) {
-		cstSupprimerMorceau.setString(1, morceau.getId());
+	public void supprimerMorceau(I_Morceau morceau) throws SQLException {
+		cstSupprimerMorceau.setInt(1, morceau.getId());
 		cstSupprimerMorceau.execute();
 		getMorceauxFromDB();
 	}
