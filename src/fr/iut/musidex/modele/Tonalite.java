@@ -1,4 +1,4 @@
-package fr.iut.entities;
+package fr.iut.musidex.modele;
 
 public enum Tonalite {
 	C,

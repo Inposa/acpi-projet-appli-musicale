@@ -1,4 +1,4 @@
-package fr.iut.entities;
+package fr.iut.musidex.views;
 
 import java.awt.EventQueue;
 import java.net.*;
