@@ -31,9 +31,10 @@ public class HomeController {
 
     public List<PlaylistModel> getPlaylists(){
         List<I_Playlist> playlists = new ArrayList<>();
-        playlists.add(new Playlist("Test1"));
-        playlists.add(new Playlist("Test2"));
-        playlists.add(new Playlist("Test3"));
+        playlists.add(new Playlist("Rap Fr"));
+        playlists.add(new Playlist("Disco"));
+        playlists.add(new Playlist("Dubstep"));
+        playlists.add(new Playlist("Comptines et chansons"));
 
         List<PlaylistModel> models = new ArrayList<>();
         for (I_Playlist p : playlists) {

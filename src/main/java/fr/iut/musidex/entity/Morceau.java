@@ -7,7 +7,8 @@ public class Morceau implements I_Morceau {
 	private String tonalite;
 	
 	public Morceau(String titre, String interprete) {
-		
+		this.titre = titre;
+                this.interprete = interprete;
 		
 	}
 

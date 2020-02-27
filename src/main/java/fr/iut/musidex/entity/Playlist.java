@@ -36,7 +36,7 @@ public class Playlist implements I_Playlist{
 
     @Override
     public I_Morceau[] getMorceaux() {
-        return morceaux.toArray(I_Morceau[]::new);
+        return morceaux.stream().toArray(I_Morceau[]::new);
     }
 
     @Override

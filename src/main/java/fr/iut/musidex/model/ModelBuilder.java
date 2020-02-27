@@ -14,6 +14,7 @@ public class ModelBuilder {
     public static PlaylistModel playlistToPlaylistModel(I_Playlist playlist){
         PlaylistModel playlistModel = new PlaylistModel();
         playlistModel.setNom(playlist.getNom());
+        playlistModel.setNbMorceaux(playlist.getMorceaux().length);
         return playlistModel;
     }
 
