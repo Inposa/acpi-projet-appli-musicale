@@ -1,0 +1,129 @@
+package fr.iut.entities;
+
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import java.awt.BorderLayout;
+import javax.swing.GroupLayout;
+import javax.swing.GroupLayout.Alignment;
+import java.awt.GridLayout;
+import javax.swing.JPanel;
+import java.awt.Button;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import javax.swing.JTextField;
+import java.awt.Font;
+import java.awt.Canvas;
+import javax.swing.JComboBox;
+import javax.swing.SwingConstants;
+import javax.swing.DropMode;
+import javax.swing.JTextArea;
+
+public class fenetreMorceaux {
+
+	private JFrame frame;
+	private JTextField txtTitre;
+	private JTextArea txtCommentaire;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					fenetreMorceaux window = new fenetreMorceaux();
+					window.frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the application.
+	 */
+	public fenetreMorceaux() {
+		initialize();
+	}
+
+	/**
+	 * Initialize the contents of the frame.
+	 */
+	private void initialize() {
+		frame = new JFrame();
+		frame.setResizable(false);
+		frame.setAutoRequestFocus(false);
+		frame.setBounds(100, 100, 836, 471);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
+		JButton btAjouterMorceau = new JButton("Ajouter le morceau");
+		btAjouterMorceau.setBounds(224, 404, 190, 25);
+		btAjouterMorceau.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		frame.getContentPane().setLayout(null);
+		frame.getContentPane().add(btAjouterMorceau);
+		
+		JButton btAnnuler = new JButton("Annuler");
+		btAnnuler.setEnabled(false);
+		btAnnuler.setBounds(425, 404, 190, 25);
+		frame.getContentPane().add(btAnnuler);
+		
+		JLabel lblNomMorceau = new JLabel("Titre Morceau :");
+		lblNomMorceau.setBounds(50, 48, 114, 15);
+		frame.getContentPane().add(lblNomMorceau);
+		
+		JLabel lblCommentaires = new JLabel("Commentaires :");
+		lblCommentaires.setBounds(50, 161, 148, 15);
+		frame.getContentPane().add(lblCommentaires);
+		
+		txtTitre = new JTextField();
+		txtTitre.setBounds(171, 46, 114, 20);
+		frame.getContentPane().add(txtTitre);
+		txtTitre.setColumns(10);
+		
+		txtCommentaire = new JTextArea();
+		txtCommentaire.setLineWrap(true);
+		txtCommentaire.setColumns(10);
+		txtCommentaire.setBounds(60, 188, 450, 165);
+		frame.getContentPane().add(txtCommentaire);
+		
+		JLabel lblInfos = new JLabel("Infos");
+		lblInfos.setFont(new Font("Dialog", Font.BOLD, 17));
+		lblInfos.setBounds(400, 12, 49, 15);
+		frame.getContentPane().add(lblInfos);
+		
+		JLabel lblTonalitOriginale = new JLabel("Tonalité Originale :");
+		lblTonalitOriginale.setBounds(302, 48, 148, 15);
+		frame.getContentPane().add(lblTonalitOriginale);
+		
+		JLabel lblTonalitJoue = new JLabel("Tonalité Jouée :");
+		lblTonalitJoue.setBounds(525, 46, 114, 15);
+		frame.getContentPane().add(lblTonalitJoue);
+		
+		JButton btVidDuMorceau = new JButton("Vidéo du morceau");
+		btVidDuMorceau.setBounds(118, 96, 190, 25);
+		frame.getContentPane().add(btVidDuMorceau);
+		
+		JButton btOuvrirPartition = new JButton("Ouvrir la partition");
+		btOuvrirPartition.setBounds(320, 96, 190, 25);
+		frame.getContentPane().add(btOuvrirPartition);
+		
+		JButton btOuvrirParole = new JButton("Ouvrir les paroles");
+		btOuvrirParole.setBounds(522, 96, 190, 25);
+		frame.getContentPane().add(btOuvrirParole);
+		
+		JComboBox cbTonOriginale = new JComboBox();
+		cbTonOriginale.setBounds(453, 46, 54, 20);
+		frame.getContentPane().add(cbTonOriginale);
+		
+		JComboBox cbTonJouee = new JComboBox();
+		cbTonJouee.setBounds(646, 46, 54, 20);
+		frame.getContentPane().add(cbTonJouee);
+	}
+}
