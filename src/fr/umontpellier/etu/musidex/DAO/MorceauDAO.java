@@ -6,8 +6,11 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 import fr.umontpellier.etu.musidex.modele.I_Morceau;
+import fr.umontpellier.etu.musidex.modele.Morceau;
 
 public class MorceauDAO {
 	
@@ -74,6 +77,7 @@ public class MorceauDAO {
 			rs.close();
 			cstInsererMorceau.close();
 			cstModifierMorceau.close();
+			cstSupprimerMorceau.close();
 			st.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -115,5 +119,17 @@ public class MorceauDAO {
 		}
 	}
 	
+	public List<I_Morceau> getListeMorceaux() {
+		List<I_Morceau> morceaux = new ArrayList<I_Morceau>();
+		try {
+			rs.beforeFirst();
+			while (rs.next()) {
+				
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return morceaux;
+	}
 
 }
