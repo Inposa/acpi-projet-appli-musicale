@@ -1,4 +1,4 @@
-package fr.umontpellier.etu.musidex.model;
+package fr.iut.musidex.entity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -35,8 +35,8 @@ public class Playlist implements I_Playlist{
     }
 
     @Override
-    public List<I_Morceau> getMorceaux() {
-        return morceaux;
+    public I_Morceau[] getMorceaux() {
+        return morceaux.toArray(I_Morceau[]::new);
     }
 
     @Override

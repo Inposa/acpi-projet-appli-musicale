@@ -1,4 +1,4 @@
-package fr.umontpellier.etu.musidex.model;
+package fr.iut.musidex.entity;
 
 public interface I_Morceau {
     public String getNom();

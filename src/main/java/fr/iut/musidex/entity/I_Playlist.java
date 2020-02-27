@@ -1,6 +1,4 @@
-package fr.umontpellier.etu.musidex.model;
-
-import java.util.List;
+package fr.iut.musidex.entity;
 
 public interface I_Playlist {
     int getId();
@@ -8,7 +6,7 @@ public interface I_Playlist {
     String getNom();
     void setNom(String nom);
 
-    List<I_Morceau> getMorceaux();
+    I_Morceau[] getMorceaux();
     void ajouterMorceau(I_Morceau morceau);
     void supprimerMorceau(I_Morceau morceau);
 }
