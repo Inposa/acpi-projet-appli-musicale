@@ -1,6 +1,10 @@
 package fr.iut.musidex.modele;
 
 public class Morceau implements I_Morceau {
+	private static int LAST_ID = 0;
+	
+	private int id;
+	
 	private String titre;
 	private String interprete;
 	
@@ -11,6 +15,7 @@ public class Morceau implements I_Morceau {
 	private String lienYT;
 	
 	public Morceau(String titre, String interprete,Tonalite tonalite, float duree) {
+		this.id = LAST_ID++;
 		this.titre = titre;
 		this.interprete = interprete;
 		this.tonalite = tonalite;
@@ -24,12 +29,10 @@ public class Morceau implements I_Morceau {
 	public Morceau(String titre, String interprete, Tonalite tonalite) {
 		this(titre, interprete, tonalite, 0);
 	}
-	//
-	
+		
 	public Morceau(String titre, String interprete) {
 		this(titre, interprete, Tonalite.C);
 	}
-	
 	
 	@Override
 	public String getNom() {
@@ -73,10 +76,10 @@ public class Morceau implements I_Morceau {
 		
 	}
 
-	@Override
+	/*@Override
 	public String toString() {
 		return "Morceau: " + this.titre + "| Interprète:" + this.interprete + "| Tonalité:" + this.tonalite;
-	}
+	}*/
 
 	
 
