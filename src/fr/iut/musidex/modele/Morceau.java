@@ -33,4 +33,15 @@ public class Morceau implements I_Morceau {
 		this.interprete = interprete;
 	}
 
+	@Override
+	public Tonalite getTonalite() {
+		return this.tonalite;
+	}
+
+	@Override
+	public void setTonalite(Tonalite tonalite) {
+		this.tonalite = tonalite;
+		
+	}
+
 }

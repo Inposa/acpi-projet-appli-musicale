@@ -7,5 +7,6 @@ public interface I_Morceau {
     public String getInterprete();
     public void setInterprete(String interprete);
     
-    
+    public Tonalite getTonalite();
+    public void setTonalite(Tonalite tonalite);    
 }
