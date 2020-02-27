@@ -1,4 +1,4 @@
-package DAO;
+package fr.iut.musidex.DAO;
 
 import java.sql.CallableStatement;
 import java.sql.Connection;
@@ -12,7 +12,8 @@ public class MorceauDAO {
 	private static MorceauDAO instance;
 	private Connection cn;
 	private Statement st;
-	private CallableStatement cst;
+	private CallableStatement cstInsererMorceau;
+	private CallableStatement cstModifierMorceau;
 	private ResultSet rs;
 	
 	private MorceauDAO() {
@@ -38,10 +39,10 @@ public class MorceauDAO {
 			
 			try {
 				cn = DriverManager.getConnection(url, login, mdp);
-				System.out.println("Connexion à la base de donn�es r�ussie");
+				System.out.println("Connexion à la base de données réussie");
 				
 			} catch (SQLException e) {
-				System.out.println("Echec de la connexion à la base de donn�es");
+				System.out.println("Echec de la connexion à la base de données");
 				e.printStackTrace();
 			}
 			
@@ -55,7 +56,8 @@ public class MorceauDAO {
 		try {
 			st = cn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
 			rs = st.executeQuery("SELECT m.* FROM Morceaux m");
-			cst = cn.prepareCall("{CALL insererMorceau(?,?,?,?)}");
+			cstInsererMorceau = cn.prepareCall("{CALL insererMorceau(?,?,?,?)}");
+			cstModifierMorceau = cn.prepareCall("{CALL modifierMorceau(?,?,?,?)}");
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -69,6 +71,28 @@ public class MorceauDAO {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+	}
+	
+	
+	
+	public void insererMorceau(I_Morceau morceau) {
+		cstInsererMorceau.setString(1, morceau.getTitre());
+		cstInsererMorceau.setString(2, morceau.getInterprete());
+		cstInsererMorceau.setString(3, morceau.getTonalite());
+		cstInsererMorceau.setFloat(4, morceau.getDuree());
+		cstInsererMorceau.execute();
+	}
+	
+	public void modifierMorceau(I_Morceau morceau) {
+		cstModifierMorceau.setString(1, morceau.getTitre());
+		cstModifierMorceau.setString(2, morceau.getInterprete());
+		cstModifierMorceau.setString(3, morceau.getTonalite());
+		cstModifierMorceau.setFloat(4, morceau.getDuree());
+		cstModifierMorceau.execute();
+	}
+	
+	public void supprimerMorceau(I_Morceau morceau) {
+		
 	}
 	
 
