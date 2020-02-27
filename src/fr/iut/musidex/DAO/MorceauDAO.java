@@ -7,6 +7,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import fr.iut.musidex.modele.I_Morceau;
+
 public class MorceauDAO {
 	
 	private static MorceauDAO instance;
@@ -14,7 +16,10 @@ public class MorceauDAO {
 	private Statement st;
 	private CallableStatement cstInsererMorceau;
 	private CallableStatement cstModifierMorceau;
+	private CallableStatement cstSupprimerMorceau;
 	private ResultSet rs;
+	
+	private String getMorceauxQuery = "SELECT m.* FROM Morceaux m";
 	
 	private MorceauDAO() {
 		ouvrirConnexion();
@@ -55,9 +60,10 @@ public class MorceauDAO {
 	private void creationDesStatements() {
 		try {
 			st = cn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
-			rs = st.executeQuery("SELECT m.* FROM Morceaux m");
-			cstInsererMorceau = cn.prepareCall("{CALL insererMorceau(?,?,?,?)}");
-			cstModifierMorceau = cn.prepareCall("{CALL modifierMorceau(?,?,?,?)}");
+			rs = st.executeQuery(getMorceauxQuery);
+			cstInsererMorceau = cn.prepareCall("{CALL insererMorceau(?,?,?,?,?)}");
+			cstModifierMorceau = cn.prepareCall("{CALL modifierMorceau(?,?,?,?,?)}");
+			cstModifierMorceau = cn.prepareCall("{CALL supprimerMorceau(?)");
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -66,7 +72,8 @@ public class MorceauDAO {
 	public void fermerConnexion() {
 		try {
 			rs.close();
-			cst.close();
+			cstInsererMorceau.close();
+			cstModifierMorceau.close();
 			st.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -76,23 +83,37 @@ public class MorceauDAO {
 	
 	
 	public void insererMorceau(I_Morceau morceau) {
-		cstInsererMorceau.setString(1, morceau.getTitre());
-		cstInsererMorceau.setString(2, morceau.getInterprete());
-		cstInsererMorceau.setString(3, morceau.getTonalite());
-		cstInsererMorceau.setFloat(4, morceau.getDuree());
+		cstInsererMorceau.setString(1, morceau.getId());
+		cstInsererMorceau.setString(2, morceau.getTitre());
+		cstInsererMorceau.setString(4, morceau.getInterprete());
+		cstInsererMorceau.setString(4, morceau.getTonalite().toString());
+		cstInsererMorceau.setFloat(5, morceau.getDuree());
 		cstInsererMorceau.execute();
+		getMorceauxFromDB();
 	}
 	
 	public void modifierMorceau(I_Morceau morceau) {
-		cstModifierMorceau.setString(1, morceau.getTitre());
-		cstModifierMorceau.setString(2, morceau.getInterprete());
-		cstModifierMorceau.setString(3, morceau.getTonalite());
-		cstModifierMorceau.setFloat(4, morceau.getDuree());
+		cstModifierMorceau.setString(1, morceau.getId());
+		cstModifierMorceau.setString(2, morceau.getTitre());
+		cstModifierMorceau.setString(3, morceau.getInterprete());
+		cstModifierMorceau.setString(4, morceau.getTonalite().toString());
+		cstModifierMorceau.setFloat(5, morceau.getDuree());
 		cstModifierMorceau.execute();
+		getMorceauxFromDB();
 	}
 	
 	public void supprimerMorceau(I_Morceau morceau) {
-		
+		cstSupprimerMorceau.setString(1, morceau.getId());
+		cstSupprimerMorceau.execute();
+		getMorceauxFromDB();
+	}
+	
+	private void getMorceauxFromDB() {
+		try {
+			rs = st.executeQuery(getMorceauxQuery);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
 	
 
