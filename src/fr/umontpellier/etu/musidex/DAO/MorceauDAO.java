@@ -98,10 +98,10 @@ public class MorceauDAO {
 	
 	public void modifierMorceau(I_Morceau morceau) throws SQLException {
 		cstModifierMorceau.setInt(1, morceau.getId());
-		cstModifierMorceau.setString(1, morceau.getNom());
-		cstModifierMorceau.setString(2, morceau.getInterprete());
-		cstModifierMorceau.setString(3, morceau.getTonalite().toString());
-		cstModifierMorceau.setFloat(4, morceau.getDuree());
+		cstModifierMorceau.setString(2, morceau.getNom());
+		cstModifierMorceau.setString(3, morceau.getInterprete());
+		cstModifierMorceau.setString(4, morceau.getTonalite().toString());
+		cstModifierMorceau.setFloat(5, morceau.getDuree());
 		cstModifierMorceau.execute();
 		getMorceauxFromDB();
 	}
@@ -128,12 +128,7 @@ public class MorceauDAO {
 				int id = rs.getInt("id");
 				String nom = rs.getString("nom");
 				String interprete = rs.getString("interprete");
-				Tonalite tonalite = null;
-				for(Tonalite t : Tonalite.values()) {
-					if(rs.getString("tonalite").equals(t.name()) ) {
-						tonalite = t;
-					}
-				}
+				Tonalite tonalite = Tonalite.valueOf(rs.getString("tonalite"));
 				float duree = rs.getFloat("duree");
 				I_Morceau morceau = new Morceau(id, nom, interprete, tonalite, duree);
 				morceaux.add(morceau);
