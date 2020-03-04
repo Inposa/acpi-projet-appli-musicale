@@ -6,7 +6,7 @@
 package fr.iut.musidex.view;
 
 import fr.iut.musidex.controller.*;
-import fr.iut.musidex.model.*;
+import fr.iut.musidex.modelview.*;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -23,7 +23,7 @@ public class HomeWindow extends javax.swing.JFrame {
         int i = 0;
         
         DefaultTableModel model = (DefaultTableModel) playlistTable.getModel();
-        for (PlaylistModel playlist : controller.getPlaylists()) 
+        for (PlaylistModelView playlist : controller.getPlaylists())
         {
             model.addRow(new Object[] {playlist.getNom(),playlist.getCount()});
             i++;
