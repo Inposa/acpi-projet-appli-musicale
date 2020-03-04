@@ -7,14 +7,13 @@ package fr.iut.musidex.view;
 
 import fr.iut.musidex.controller.ControllerCreation;
 import java.util.ArrayList;
-import javax.swing.DefaultListModel;
-import javax.swing.ListModel;
+import javax.swing.*;
+
 import fr.iut.musidex.entity.I_Morceau;
 import fr.iut.musidex.entity.Morceau;
 import fr.iut.musidex.entity.Partie;
 import fr.iut.musidex.entity.Playlist;
 import java.util.List;
-import javax.swing.JOptionPane;
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.DefaultTreeModel;
 import javax.swing.tree.MutableTreeNode;
@@ -36,13 +35,15 @@ public class FenetreCreationPlaylist extends javax.swing.JFrame {
      */
     public FenetreCreationPlaylist() {
         initComponents();
+        this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+
         modelBiblio = (DefaultListModel) listBibliotheque.getModel();
         modelTree = (DefaultTreeModel) treeParties.getModel();
         ArrayList<I_Morceau> lesMorceaux = controller.getBibliotheque();
         for (I_Morceau unMorceau : lesMorceaux) {
             modelBiblio.addElement(unMorceau);
         }
-
+        setVisible(true);
     }
 
     /**

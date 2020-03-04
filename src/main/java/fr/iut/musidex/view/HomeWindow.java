@@ -1,7 +1,6 @@
 package fr.iut.musidex.view;
 
 import fr.iut.musidex.controller.*;
-import fr.iut.musidex.view.*;
 import fr.iut.musidex.modelview.*;
 import java.util.List;
 import javax.swing.table.DefaultTableModel;
@@ -242,7 +241,7 @@ public class HomeWindow extends javax.swing.JFrame {
 
     private void AddButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddButtonActionPerformed
         if(currentMode == HomeMode.Playlist){
-            System.out.println("Launch add playlist windows");
+            FenetreCreationPlaylist creationPlaylistWindows = new FenetreCreationPlaylist();
         }
         else if(currentMode == HomeMode.Music) {
             System.out.println("Launch add music windows");
