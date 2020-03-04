@@ -23,12 +23,10 @@ public class Morceau implements I_Morceau {
     }
 
     @Override
-    public String toString() {
-        return nom;
-    }
-
-    @Override
     public int getId() {
         return id;
     }
+
+    @Override
+    public String toString() { return nom; }
 }

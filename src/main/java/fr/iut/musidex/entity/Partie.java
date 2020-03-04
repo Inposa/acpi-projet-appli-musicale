@@ -49,4 +49,7 @@ public class Partie implements I_Partie {
     public void supprimerMorceau(I_Morceau morceau) {
         morceaux.remove(morceau);
     }
+
+    @Override
+    public String toString() { return nom; }
 }

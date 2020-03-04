@@ -50,4 +50,7 @@ public class Playlist implements I_Playlist{
     public void supprimerPartie(I_Partie partie) {
         parties.remove(partie);
     }
+
+    @Override
+    public String toString() { return nom; }
 }
