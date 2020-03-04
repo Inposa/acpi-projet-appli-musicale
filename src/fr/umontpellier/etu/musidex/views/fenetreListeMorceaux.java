@@ -78,7 +78,7 @@ public class fenetreListeMorceaux {
 		JButton btAnnuler = new JButton("Supprimer le morceau");
 		btAnnuler.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				//TODO: Appel vers fenêtreMorceaux avec l'action Supprimer et l'objet du morceau à suppr
+				//TODO: Appel vers fenêtreMorceaux avec l'action Supprimer et l'objet du morceau à suppr.
 			}
 		});
 		btAnnuler.setEnabled(false);
