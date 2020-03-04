@@ -1,6 +1,4 @@
-package fr.umontpellier.etu.musidex.entity;
-
-import java.util.ArrayList;
+package fr.iut.musidex.entity;
 
 public class Morceau implements I_Morceau {
 

@@ -1,4 +1,4 @@
-package fr.umontpellier.etu.musidex.entity;
+package fr.iut.musidex.entity;
 
 import java.util.List;
 

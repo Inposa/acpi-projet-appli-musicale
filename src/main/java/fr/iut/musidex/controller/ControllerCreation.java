@@ -3,11 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package fr.umontpellier.etu.musidex.controller;
+package fr.iut.musidex.controller;
 
 import java.util.ArrayList;
-import fr.umontpellier.etu.musidex.entity.I_Morceau;
-import fr.umontpellier.etu.musidex.entity.Morceau;
+import fr.iut.musidex.entity.I_Morceau;
+import fr.iut.musidex.entity.Morceau;
 
 /**
  *
