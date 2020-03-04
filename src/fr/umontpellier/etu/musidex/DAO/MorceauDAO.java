@@ -135,7 +135,7 @@ public class MorceauDAO {
 					}
 				}
 				float duree = rs.getFloat("duree");
-				I_Morceau morceau = new Morceau(nom, interprete, tonalite, duree);
+				I_Morceau morceau = new Morceau(id, nom, interprete, tonalite, duree);
 				morceaux.add(morceau);
 			}
 		} catch (SQLException e) {
