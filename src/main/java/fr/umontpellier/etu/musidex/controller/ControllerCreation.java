@@ -6,10 +6,8 @@
 package fr.umontpellier.etu.musidex.controller;
 
 import java.util.ArrayList;
-import fr.umontpellier.etu.musidex.model.I_Morceau;
-import fr.umontpellier.etu.musidex.model.Morceau;
-
-import java.util.List;
+import fr.umontpellier.etu.musidex.entity.I_Morceau;
+import fr.umontpellier.etu.musidex.entity.Morceau;
 
 /**
  *

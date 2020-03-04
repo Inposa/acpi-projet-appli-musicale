@@ -1,4 +1,4 @@
-package fr.umontpellier.etu.musidex.model;
+package fr.umontpellier.etu.musidex.entity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,12 +11,14 @@ public class Playlist implements I_Playlist{
 
     private String nom;
 
-    private List<I_Morceau> morceaux;
+    private List<I_Partie> parties;
+
+    public Playlist() { this.id = ++compteurId; }
 
     public Playlist(String nom) {
-        this.id = ++compteurId;
+        this();
         this.nom = nom;
-        morceaux= new ArrayList<>();
+        parties = new ArrayList<>();
     }
 
     @Override
@@ -35,18 +37,18 @@ public class Playlist implements I_Playlist{
     }
 
     @Override
-    public List<I_Morceau> getMorceaux() {
-        return morceaux;
+    public List<I_Partie> getParties() {
+        return parties;
     }
 
     @Override
-    public void ajouterMorceau(I_Morceau morceau) {
-        morceaux.add(morceau);
+    public void ajouterPartie(I_Partie partie) {
+        parties.add(partie);
     }
 
     @Override
-    public void supprimerMorceau(I_Morceau morceau) {
-        morceaux.remove(morceau);
+    public void supprimerPartie(I_Partie partie) {
+        parties.remove(partie);
     }
 
 }
