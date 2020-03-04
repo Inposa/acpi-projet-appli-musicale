@@ -1,9 +1,11 @@
 package fr.umontpellier.etu.musidex.controllers;
+import fr.umontpellier.etu.musidex.DAO.MorceauDAO;
 import fr.umontpellier.etu.musidex.modele.*;
 import fr.umontpellier.etu.musidex.views.fenetreMorceaux;
 
 public class ControllerMorceau{
 	private Morceau m;
+	private MorceauDAO mDAO;
 	
 	public Morceau getM() {
 		return m;
@@ -15,6 +17,7 @@ public class ControllerMorceau{
 
 	public ControllerMorceau(Morceau m) {
 		this.m = m;
+		this.mDAO = MorceauDAO.getInstance();
 	}
 	
 	public void editerTonalite(String newTonalite) {

@@ -6,23 +6,16 @@ import java.util.List;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import java.awt.BorderLayout;
-import javax.swing.GroupLayout;
-import javax.swing.GroupLayout.Alignment;
-import java.awt.GridLayout;
-import javax.swing.JPanel;
-import java.awt.Button;
+import javax.swing.JOptionPane;
+
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JTextField;
 import java.awt.Font;
-import java.awt.Canvas;
 import java.awt.Desktop;
 
 import javax.swing.JComboBox;
-import javax.swing.SwingConstants;
-import javax.swing.DropMode;
 import javax.swing.JTextArea;
 
 import fr.umontpellier.etu.musidex.modele.Tonalite;
@@ -32,8 +25,11 @@ public class fenetreMorceaux {
 	private JFrame frame;
 	private JTextField txtTitre;
 	private JTextArea txtCommentaire;
-	
 	private List<String> tonalites;
+	private JTextField txtLienVideo;
+	private JTextField txtLienPartition;
+	private JTextField txtLienParole;
+	private JTextField txtInterprete;
 
 	/**
 	 * Launch the application.
@@ -78,7 +74,8 @@ public class fenetreMorceaux {
 		btAjouterMorceau.setBounds(224, 404, 190, 25);
 		btAjouterMorceau.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				//TODO: Créé le morceau si text bt = "Ajouter le morceau" sinon modifié le morceau.
+				//TODO: Créé le morceau si text bt = "Ajouter le morceau" sinon modifié le morceau
+				
 			}
 		});
 		frame.getContentPane().setLayout(null);
@@ -87,10 +84,9 @@ public class fenetreMorceaux {
 		JButton btAnnuler = new JButton("Annuler");
 		btAnnuler.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				//TODO: Annule l'enregistrement du morceau si text bt = Annule sinon Supprime morceau existant.
+				//TODO: Annule l'enregistrement du morceau si entrée = "Ajout" sinon annule les modifications si entrée = "Modif"
 			}
 		});
-		btAnnuler.setEnabled(false);
 		btAnnuler.setBounds(425, 404, 190, 25);
 		frame.getContentPane().add(btAnnuler);
 		
@@ -99,7 +95,7 @@ public class fenetreMorceaux {
 		frame.getContentPane().add(lblNomMorceau);
 		
 		JLabel lblCommentaires = new JLabel("Commentaires :");
-		lblCommentaires.setBounds(50, 161, 148, 15);
+		lblCommentaires.setBounds(50, 195, 148, 15);
 		frame.getContentPane().add(lblCommentaires);
 		
 		txtTitre = new JTextField();
@@ -110,7 +106,7 @@ public class fenetreMorceaux {
 		txtCommentaire = new JTextArea();
 		txtCommentaire.setLineWrap(true);
 		txtCommentaire.setColumns(10);
-		txtCommentaire.setBounds(60, 188, 450, 165);
+		txtCommentaire.setBounds(60, 222, 450, 152);
 		frame.getContentPane().add(txtCommentaire);
 		
 		JLabel lblInfos = new JLabel("Infos");
@@ -123,47 +119,51 @@ public class fenetreMorceaux {
 		frame.getContentPane().add(lblTonalitOriginale);
 		
 		JLabel lblTonalitJoue = new JLabel("Tonalité Jouée :");
-		lblTonalitJoue.setBounds(525, 46, 114, 15); 
+		lblTonalitJoue.setBounds(525, 46, 114, 15);
 		frame.getContentPane().add(lblTonalitJoue);
 		
 		JButton btVidDuMorceau = new JButton("Vidéo du morceau");
 		btVidDuMorceau.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
-					String lien = "https://www.youtube.com/watch?v=dQw4w9WgXcQ";
+					String lien = txtLienVideo.getText();
 				    Desktop.getDesktop().browse(new URL(lien).toURI());
-				} catch (Exception e1) {}
+				} catch (Exception e1) {
+					JOptionPane.showMessageDialog(null, "Le lien n'est pas valide !", "Erreur", JOptionPane.ERROR_MESSAGE);
+				}
 			}
 		});
-		btVidDuMorceau.setBounds(118, 96, 190, 25);
+		btVidDuMorceau.setBounds(50, 158, 211, 25);
 		frame.getContentPane().add(btVidDuMorceau);
 		
 		JButton btOuvrirPartition = new JButton("Ouvrir la partition");
 		btOuvrirPartition.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
-					//TODO: faire cela avec l'objet recup en param
-					String lien = "https://sheets-piano.ru/wp-content/uploads/2012/02/Rick-Astley-Never-Gonna-Give-You-Up.pdf";
+					String lien = txtLienPartition.getText();
 					Desktop.getDesktop().browse(new URL(lien).toURI());
-				} catch (Exception e1) {}
+				} catch (Exception e1) {
+					JOptionPane.showMessageDialog(null, "Le lien n'est pas valide !", "Erreur", JOptionPane.ERROR_MESSAGE);
+				}
 			}
 		});
-		btOuvrirPartition.setBounds(320, 96, 190, 25);
+		btOuvrirPartition.setBounds(295, 158, 211, 25);
 		frame.getContentPane().add(btOuvrirPartition);
 		
 		JButton btOuvrirParole = new JButton("Ouvrir les paroles");
 		btOuvrirParole.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
-					//TODO: faire cela avec l'objet recup en param
-					String lien = "https://www.azlyrics.com/lyrics/rickastley/nevergonnagiveyouup.html";
+					String lien = txtLienParole.getText();
 				Desktop.getDesktop().browse(new URL(lien).toURI());
-				} catch (Exception e1) {}
+				} catch (Exception e1) {
+					JOptionPane.showMessageDialog(null, "Le lien n'est pas valide !", "Erreur", JOptionPane.ERROR_MESSAGE);
+				}
 				
 			}
 		});
 		
-		btOuvrirParole.setBounds(522, 96, 190, 25);
+		btOuvrirParole.setBounds(524, 158, 212, 25);
 		frame.getContentPane().add(btOuvrirParole);
 		
 		JComboBox cbTonOriginale = new JComboBox();
@@ -173,5 +173,41 @@ public class fenetreMorceaux {
 		JComboBox cbTonJouee = new JComboBox();
 		cbTonJouee.setBounds(646, 46, 54, 20);
 		frame.getContentPane().add(cbTonJouee);
+		
+		JLabel lblLienVid = new JLabel("Lien vidéo :");
+		lblLienVid.setBounds(50, 109, 114, 15);
+		frame.getContentPane().add(lblLienVid);
+		
+		JLabel lblLienPartition = new JLabel("Lien Partition :");
+		lblLienPartition.setBounds(295, 109, 114, 15);
+		frame.getContentPane().add(lblLienPartition);
+		
+		JLabel lblLienParole = new JLabel("Lien paroles :");
+		lblLienParole.setBounds(525, 109, 114, 15);
+		frame.getContentPane().add(lblLienParole);
+		
+		txtLienVideo = new JTextField();
+		txtLienVideo.setColumns(10);
+		txtLienVideo.setBounds(50, 126, 211, 20);
+		frame.getContentPane().add(txtLienVideo);
+		
+		txtLienPartition = new JTextField();
+		txtLienPartition.setColumns(10);
+		txtLienPartition.setBounds(295, 126, 211, 20);
+		frame.getContentPane().add(txtLienPartition);
+		
+		txtLienParole = new JTextField();
+		txtLienParole.setColumns(10);
+		txtLienParole.setBounds(525, 126, 211, 20);
+		frame.getContentPane().add(txtLienParole);
+		
+		JLabel lblInterprete = new JLabel("Interprète :");
+		lblInterprete.setBounds(50, 79, 114, 15);
+		frame.getContentPane().add(lblInterprete);
+		
+		txtInterprete = new JTextField();
+		txtInterprete.setColumns(10);
+		txtInterprete.setBounds(171, 77, 114, 20);
+		frame.getContentPane().add(txtInterprete);
 	}
 }
