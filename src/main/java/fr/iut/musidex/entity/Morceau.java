@@ -82,4 +82,7 @@ public class Morceau implements I_Morceau {
     public int getId() {
         return this.id;
     }
+
+    @Override
+    public String toString() { return nom; }
 }
