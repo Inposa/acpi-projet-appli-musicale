@@ -30,35 +30,11 @@ public class MorceauDAO {
 	}
 
 	public static MorceauDAO getInstance() {
-		if (instance == null) {
-			instance = new MorceauDAO();
+		if (MorceauDAO.instance == null) {
+			MorceauDAO.instance = new MorceauDAO();
 		}
-		return instance;
+		return MorceauDAO.instance;
 	}
-	
-	/*private void ouvrirConnexion() {
-		String url = "jdbc:oracle:thin:@162.38.222.149:1521:iut";
-		String driver = "oracle.jdbc.driver.OracleDriver";
-		String login = "pechh";
-		String mdp = "OracleHippo";
-		
-		try {
-			Class.forName(driver);
-			
-			try {
-				cn = DriverManager.getConnection(url, login, mdp);
-				System.out.println("Connexion à la base de données réussie");
-				
-			} catch (SQLException e) {
-				System.out.println("Echec de la connexion à la base de données");
-				e.printStackTrace();
-			}
-			
-		} catch (ClassNotFoundException e) {
-			System.out.println("Driver non trouvé");
-			e.printStackTrace();
-		}
-	}*/
 	
 	private void createStatements() {
 		try {
@@ -79,12 +55,13 @@ public class MorceauDAO {
 			cstModifierMorceau.close();
 			cstSupprimerMorceau.close();
 			st.close();
+			
 		} catch (SQLException e) {
 			e.printStackTrace();
+			System.out.println(e.getMessage());
 		}
 	}
 
-	
 	public void insererMorceau(I_Morceau morceau) throws SQLException {
 		cstInsererMorceau.setInt(1, morceau.getId());
 		cstInsererMorceau.setString(2, morceau.getNom());

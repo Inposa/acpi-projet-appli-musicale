@@ -31,16 +31,13 @@ public class ConnexionDAO {
 		
 		try {
 			Class.forName(driver);
-			
 			try {
 				this.cn = DriverManager.getConnection(url, login, mdp);
 				System.out.println("Connexion à la base de données réussie");
-				
 			} catch (SQLException e) {
 				System.out.println("Echec de la connexion à la base de données");
 				e.printStackTrace();
 			}
-			
 		} catch (ClassNotFoundException e) {
 			System.out.println("Driver non trouvé");
 			e.printStackTrace();
