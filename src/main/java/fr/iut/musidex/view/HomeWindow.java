@@ -33,11 +33,14 @@ public class HomeWindow extends javax.swing.JFrame {
         for (int i = tableModel.getRowCount() -1; i >= 0 ; i--) {
             tableModel.removeRow(i);
         }
+        
+        concertModeButton.setVisible(false);
     }
     
     public void LoadPlaylist(List<PlaylistModelView> list)
     {
         EmptyTable();
+        
         tableModel.setColumnIdentifiers(new Object[] {"Playlist","Count"});
         
         for (int i = 0; i < list.size(); i++) 
@@ -95,6 +98,11 @@ public class HomeWindow extends javax.swing.JFrame {
             }
         ));
         mainTable.setMaximumSize(new java.awt.Dimension(1000, 144));
+        mainTable.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                mainTableFocusGained(evt);
+            }
+        });
         jScrollPane1.setViewportView(mainTable);
 
         scrollPane1.add(jScrollPane1);
@@ -240,6 +248,11 @@ public class HomeWindow extends javax.swing.JFrame {
     private void concertModeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_concertModeButtonActionPerformed
         concertForm concertWindows = new concertForm();
     }//GEN-LAST:event_concertModeButtonActionPerformed
+
+    private void mainTableFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_mainTableFocusGained
+        if(currentMode == HomeMode.Playlist)
+            concertModeButton.setVisible(true);
+    }//GEN-LAST:event_mainTableFocusGained
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

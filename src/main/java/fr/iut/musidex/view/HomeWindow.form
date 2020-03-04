@@ -106,6 +106,9 @@
                   <Dimension value="[1000, 144]"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="mainTableFocusGained"/>
+              </Events>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_SerializeTo" type="java.lang.String" value="NewJFrame_jTable1"/>
               </AuxValues>
