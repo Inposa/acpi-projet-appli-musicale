@@ -7,11 +7,8 @@ public class Morceau implements I_Morceau {
 
     private String nom;
     private String interprete;
-
     private Tonalite tonalite;
-
     private float duree;
-
     private String lienYT;
 
     public Morceau(int id, String nom, String interprete,Tonalite tonalite, float duree) {
@@ -27,7 +24,7 @@ public class Morceau implements I_Morceau {
     }
 
     public Morceau(String nom, String interprete,Tonalite tonalite, float duree) {
-        this(++LAST_ID, nom, interprete, tonalite, 0);
+        this(++LAST_ID, nom, interprete, tonalite, duree);
     }
 
     public Morceau(String nom, String interprete, Tonalite tonalite) {

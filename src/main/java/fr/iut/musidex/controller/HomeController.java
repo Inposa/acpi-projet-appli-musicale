@@ -7,6 +7,7 @@ import fr.iut.musidex.entity.Playlist;
 import fr.iut.musidex.modelview.ModelViewBuilder;
 import fr.iut.musidex.modelview.MorceauModelView;
 import fr.iut.musidex.modelview.PlaylistModelView;
+import fr.iut.musidex.entity.Tonalite;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,9 +17,9 @@ public class HomeController {
     public List<MorceauModelView> getMorceaux(){
         List<I_Morceau> morceaux = new ArrayList<>();
 
-        morceaux.add(new Morceau("morceau 1", "Inter 1"));
-        morceaux.add(new Morceau("morceau 2", "Inter 2"));
-        morceaux.add(new Morceau("morceau 3", "Inter 3"));
+        morceaux.add(new Morceau("morceau 1", "Inter 1",Tonalite.D,2.5f));
+        morceaux.add(new Morceau("morceau 2", "Inter 2",Tonalite.E,3.5f));
+        morceaux.add(new Morceau("morceau 3", "Inter 3",Tonalite.A,2f));
 
         List<MorceauModelView> models = new ArrayList<>();
 

@@ -54,11 +54,15 @@ public class HomeWindow extends javax.swing.JFrame {
      public void LoadMusic(List<MorceauModelView> list)
     {
         EmptyTable();
-        tableModel.setColumnIdentifiers(new Object[] {"Title"});
+        tableModel.setColumnIdentifiers(new Object[] {"Title","Interprete","Duree","Tonalite"});
 
         for (int i = 0; i < list.size(); i++) 
         {
-            tableModel.addRow(new Object[] {list.get(i).getNom()});
+            tableModel.addRow(new Object[] {list.get(i).getNom(), 
+                list.get(i).getInterprete(),
+                list.get(i).getDuree(),
+                list.get(i).getTonalite(),
+                list.get(i).getLienYT()});
         }
         
         currentMode = HomeMode.Music;
