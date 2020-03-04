@@ -6,7 +6,6 @@ import org.junit.jupiter.api.Test;
 
 import fr.umontpellier.etu.musidex.modele.Morceau;
 import fr.umontpellier.etu.musidex.modele.Morceaux;
-import junit.framework.Assert;
 
 class TestMorceaux {
 
