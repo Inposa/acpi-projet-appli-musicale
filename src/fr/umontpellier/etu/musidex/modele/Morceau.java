@@ -62,7 +62,6 @@ public class Morceau implements I_Morceau {
 	@Override
 	public void setTonalite(Tonalite tonalite) {
 		this.tonalite = tonalite;
-		
 	}
 
 	@Override

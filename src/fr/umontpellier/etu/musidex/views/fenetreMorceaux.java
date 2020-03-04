@@ -2,6 +2,7 @@ package fr.umontpellier.etu.musidex.views;
 
 import java.awt.EventQueue;
 import java.net.*;
+import java.util.List;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -24,11 +25,15 @@ import javax.swing.SwingConstants;
 import javax.swing.DropMode;
 import javax.swing.JTextArea;
 
+import fr.umontpellier.etu.musidex.modele.Tonalite;
+
 public class fenetreMorceaux {
 
 	private JFrame frame;
 	private JTextField txtTitre;
 	private JTextArea txtCommentaire;
+	
+	private List<String> tonalites;
 
 	/**
 	 * Launch the application.
@@ -44,6 +49,12 @@ public class fenetreMorceaux {
 				}
 			}
 		});
+	}
+	
+	private void initTonalites() {
+		for(Tonalite t : Tonalite.values()) {
+			this.tonalites.add(t.name());
+		}
 	}
 
 	/**
