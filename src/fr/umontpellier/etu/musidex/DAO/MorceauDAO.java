@@ -25,8 +25,8 @@ public class MorceauDAO {
 	private String getMorceauxQuery = "SELECT m.* FROM Morceaux m";
 	
 	private MorceauDAO() {
-		ouvrirConnexion();
-		creationDesStatements();
+		this.cn = ConnexionDAO.getInstance().getConnection();
+		createStatements();
 	}
 
 	public static MorceauDAO getInstance() {
@@ -36,7 +36,7 @@ public class MorceauDAO {
 		return instance;
 	}
 	
-	private void ouvrirConnexion() {
+	/*private void ouvrirConnexion() {
 		String url = "jdbc:oracle:thin:@162.38.222.149:1521:iut";
 		String driver = "oracle.jdbc.driver.OracleDriver";
 		String login = "pechh";
@@ -58,9 +58,9 @@ public class MorceauDAO {
 			System.out.println("Driver non trouvé");
 			e.printStackTrace();
 		}
-	}
+	}*/
 	
-	private void creationDesStatements() {
+	private void createStatements() {
 		try {
 			st = cn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
 			rs = st.executeQuery(getMorceauxQuery);

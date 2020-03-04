@@ -86,10 +86,4 @@ public class Morceau implements I_Morceau {
 		return this.id;
 	}
 
-	/*@Override
-	public String toString() {
-		return "Morceau: " + this.titre + "| Interprète:" + this.interprete + "| Tonalité:" + this.tonalite;
-	}*/
-
-
 }
