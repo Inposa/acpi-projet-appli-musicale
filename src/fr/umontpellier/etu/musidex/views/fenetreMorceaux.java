@@ -74,7 +74,7 @@ public class fenetreMorceaux {
 		btAjouterMorceau.setBounds(224, 404, 190, 25);
 		btAjouterMorceau.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				//TODO: Créé le morceau si text bt = "Ajouter le morceau" sinon modifié le morceau.
+				//TODO: Créé le morceau si text bt = "Ajouter le morceau" sinon modifié le morceau
 				
 			}
 		});
@@ -84,7 +84,7 @@ public class fenetreMorceaux {
 		JButton btAnnuler = new JButton("Annuler");
 		btAnnuler.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				//TODO: Annule l'enregistrement du morceau si entrée = "Ajout" sinon annule les modifications si entrée = "Modif".
+				//TODO: Annule l'enregistrement du morceau si entrée = "Ajout" sinon annule les modifications si entrée = "Modif"
 			}
 		});
 		btAnnuler.setBounds(425, 404, 190, 25);
