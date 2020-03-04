@@ -119,7 +119,7 @@ public class fenetreMorceaux {
 		frame.getContentPane().add(lblTonalitOriginale);
 		
 		JLabel lblTonalitJoue = new JLabel("Tonalité Jouée :");
-		lblTonalitJoue.setBounds(525, 46, 114, 15);
+		lblTonalitJoue.setBounds(525, 46, 114, 15); 
 		frame.getContentPane().add(lblTonalitJoue);
 		
 		JButton btVidDuMorceau = new JButton("Vidéo du morceau");
