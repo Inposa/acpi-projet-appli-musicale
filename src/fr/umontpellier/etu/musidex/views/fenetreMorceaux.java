@@ -1,4 +1,4 @@
-package Fenetre;
+package fr.umontpellier.etu.musidex.views;
 
 import java.awt.EventQueue;
 import java.net.*;
