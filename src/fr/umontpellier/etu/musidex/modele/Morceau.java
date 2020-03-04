@@ -7,6 +7,8 @@ public class Morceau implements I_Morceau {
 	
 	private String nom;
 	private String interprete;
+	private String paroles;
+	private String partition;
 	
 	private Tonalite tonalite;
 	
@@ -14,27 +16,29 @@ public class Morceau implements I_Morceau {
 	
 	private String lienYT;
 	
-	public Morceau(int id, String nom, String interprete,Tonalite tonalite, float duree) {
+	public Morceau(int id, String nom, String interprete, String paroles, String partition, Tonalite tonalite, float duree, String lienYT) {
 		this.id = id;
 		this.nom = nom;
 		this.interprete = interprete;
+		this.paroles = paroles;
+		this.partition = partition;		
 		this.tonalite = tonalite;
 		
 		//Durée de 0 par défaut
 		this.duree = duree;
 		
-		this.lienYT = null;
+		this.lienYT = lienYT;
 	}
 	
-	public Morceau(String nom, String interprete,Tonalite tonalite, float duree) {
-		this(++LAST_ID, nom, interprete, tonalite, 0);
+	public Morceau(String nom, String interprete, String paroles, String partition, Tonalite tonalite, float duree, String lienYT) {
+		this(++LAST_ID, nom, interprete, paroles, partition, tonalite, duree, lienYT);
 	}
 
-	public Morceau(String nom, String interprete, Tonalite tonalite) {
-		this(nom, interprete, tonalite, 0);
+	public Morceau(String nom, String interprete, String paroles, String partition, Tonalite tonalite, String lienYT) {
+		this(nom, interprete, paroles, partition, tonalite, 0, lienYT);
 	}
-	public Morceau(String nom, String interprete) {
-		this(nom, interprete, Tonalite.C);
+	public Morceau(String nom, String interprete, String paroles, String partition, String lienYT) {
+		this(nom, interprete, paroles, partition, Tonalite.C, lienYT);
 	}
 	
 	@Override
@@ -54,6 +58,24 @@ public class Morceau implements I_Morceau {
 	public void setInterprete(String interprete) {
 		this.interprete = interprete;
 	}
+	
+	@Override
+	public String getParoles() {
+		return this.paroles;
+	}
+	@Override
+	public void setParoles(String paroles) {
+		this.paroles = paroles;
+	}
+	
+	@Override
+	public String getPartition() {
+		return this.partition;
+	}
+	@Override
+	public void setPartition(String partition) {
+		this.partition = partition;
+	}
 
 	@Override
 	public Tonalite getTonalite() {
@@ -62,7 +84,6 @@ public class Morceau implements I_Morceau {
 	@Override
 	public void setTonalite(Tonalite tonalite) {
 		this.tonalite = tonalite;
-		
 	}
 
 	@Override
