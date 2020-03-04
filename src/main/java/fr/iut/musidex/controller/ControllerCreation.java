@@ -17,9 +17,9 @@ public class ControllerCreation {
     
     
     public ArrayList<I_Morceau> getBibliotheque() {
-        I_Morceau m1 = new Morceau();
-        I_Morceau m2 = new Morceau();
-        I_Morceau m3 = new Morceau();
+        I_Morceau m1 = new Morceau("","");
+        I_Morceau m2 = new Morceau("","");
+        I_Morceau m3 = new Morceau("","");
         m1.setNom("René la Taupe");
         m2.setNom("Crazy Frog");
         m3.setNom("Générique de Pokémon Saison 1");
