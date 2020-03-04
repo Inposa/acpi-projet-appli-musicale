@@ -19,6 +19,7 @@ public class HomeWindow extends javax.swing.JFrame {
 
     public HomeWindow(HomeController controller) 
     {
+        this.setTitle("Mozart Gang");
         initComponents();
         
         tableModel = (DefaultTableModel) mainTable.getModel();
@@ -79,6 +80,7 @@ public class HomeWindow extends javax.swing.JFrame {
         optionName = new javax.swing.JButton();
         SearchBar = new javax.swing.JTextField();
         AddButton = new javax.swing.JButton();
+        concertModeButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -159,6 +161,13 @@ public class HomeWindow extends javax.swing.JFrame {
             }
         });
 
+        concertModeButton.setText("Launch Concert Mode");
+        concertModeButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                concertModeButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -179,6 +188,10 @@ public class HomeWindow extends javax.swing.JFrame {
                         .addGap(35, 35, 35)
                         .addComponent(SearchBar, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(46, 46, 46))))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(221, 221, 221)
+                .addComponent(concertModeButton)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -195,7 +208,9 @@ public class HomeWindow extends javax.swing.JFrame {
                             .addComponent(jLabel1))
                         .addGap(20, 20, 20)
                         .addComponent(scrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(35, Short.MAX_VALUE))
+                .addGap(38, 38, 38)
+                .addComponent(concertModeButton)
+                .addContainerGap(41, Short.MAX_VALUE))
         );
 
         pack();
@@ -222,10 +237,15 @@ public class HomeWindow extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_AddButtonActionPerformed
 
+    private void concertModeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_concertModeButtonActionPerformed
+        concertForm concertWindows = new concertForm();
+    }//GEN-LAST:event_concertModeButtonActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton AddButton;
     private javax.swing.JTextField SearchBar;
+    private javax.swing.JButton concertModeButton;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
