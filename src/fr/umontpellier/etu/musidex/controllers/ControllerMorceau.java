@@ -1,4 +1,6 @@
 package fr.umontpellier.etu.musidex.controllers;
+import java.sql.SQLException;
+
 import fr.umontpellier.etu.musidex.DAO.MorceauDAO;
 import fr.umontpellier.etu.musidex.modele.*;
 import fr.umontpellier.etu.musidex.views.fenetreMorceaux;
@@ -31,5 +33,23 @@ public class ControllerMorceau{
 	
 	public void editerNom(String newNom) {
 		this.m.setNom(newNom);
+	}
+	
+	public void modifierMorceau(Morceau m) {
+		try {
+			mDAO.modifierMorceau(m);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	public void enregistrerMorceau(Morceau m) {
+		try {
+			mDAO.insererMorceau(m);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 }
