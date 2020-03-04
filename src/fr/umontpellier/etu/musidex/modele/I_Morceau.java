@@ -12,6 +12,10 @@ public interface I_Morceau {
     
     public float getDuree();
     public void setDuree(float duree);
+    
+    public String getLienYT();
+    public void setLienYT(String lienYT);
+    
 	public int getId();
     
     

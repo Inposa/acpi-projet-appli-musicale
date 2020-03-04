@@ -11,6 +11,7 @@ import java.util.List;
 
 import fr.umontpellier.etu.musidex.modele.I_Morceau;
 import fr.umontpellier.etu.musidex.modele.Morceau;
+import fr.umontpellier.etu.musidex.modele.Tonalite;
 
 public class MorceauDAO {
 	
@@ -74,10 +75,10 @@ public class MorceauDAO {
 	
 	public void modifierMorceau(I_Morceau morceau) throws SQLException {
 		cstModifierMorceau.setInt(1, morceau.getId());
-		cstModifierMorceau.setString(1, morceau.getNom());
-		cstModifierMorceau.setString(2, morceau.getInterprete());
-		cstModifierMorceau.setString(3, morceau.getTonalite().toString());
-		cstModifierMorceau.setFloat(4, morceau.getDuree());
+		cstModifierMorceau.setString(2, morceau.getNom());
+		cstModifierMorceau.setString(3, morceau.getInterprete());
+		cstModifierMorceau.setString(4, morceau.getTonalite().toString());
+		cstModifierMorceau.setFloat(5, morceau.getDuree());
 		cstModifierMorceau.execute();
 		getMorceauxFromDB();
 	}
@@ -101,7 +102,13 @@ public class MorceauDAO {
 		try {
 			rs.beforeFirst();
 			while (rs.next()) {
-				
+				int id = rs.getInt("id");
+				String nom = rs.getString("nom");
+				String interprete = rs.getString("interprete");
+				Tonalite tonalite = Tonalite.valueOf(rs.getString("tonalite"));
+				float duree = rs.getFloat("duree");
+				I_Morceau morceau = new Morceau(id, nom, interprete, tonalite, duree);
+				morceaux.add(morceau);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
