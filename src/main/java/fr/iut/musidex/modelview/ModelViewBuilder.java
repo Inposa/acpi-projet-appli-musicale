@@ -14,7 +14,7 @@ public class ModelViewBuilder {
     public static PlaylistModelView playlistToPlaylistModel(I_Playlist playlist){
         PlaylistModelView playlistModelView = new PlaylistModelView();
         playlistModelView.setNom(playlist.getNom());
-        playlistModelView.setNbMorceaux(playlist.getMorceaux().length);
+        //playlistModelView.setNbMorceaux(playlist.getMorceaux().length);
         return playlistModelView;
     }
 

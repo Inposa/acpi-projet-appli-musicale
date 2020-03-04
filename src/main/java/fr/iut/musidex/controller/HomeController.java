@@ -16,9 +16,9 @@ public class HomeController {
     public List<MorceauModelView> getMorceaux(){
         List<I_Morceau> morceaux = new ArrayList<>();
 
-        morceaux.add(new Morceau("morceau 1","Tony"));
-        morceaux.add(new Morceau("morceau 2","James"));
-        morceaux.add(new Morceau("morceau 3","Bella"));
+        morceaux.add(new Morceau("morceau 1"));
+        morceaux.add(new Morceau("morceau 2"));
+        morceaux.add(new Morceau("morceau 3"));
 
         List<MorceauModelView> models = new ArrayList<>();
 
@@ -32,8 +32,6 @@ public class HomeController {
     public List<PlaylistModelView> getPlaylists(){
         List<I_Playlist> playlists = new ArrayList<>();
         Playlist playlist1 = new Playlist("Rap Fr");
-        playlist1.ajouterMorceau(new Morceau("morceau 2","James"));
-        playlists.add(playlist1);
         playlists.add(new Playlist("Disco"));
         playlists.add(new Playlist("Dubstep"));
         playlists.add(new Playlist("Comptines et chansons"));
