@@ -226,6 +226,8 @@ public class fenetreMorceaux {
 		txtInterprete.setColumns(10);
 		txtInterprete.setBounds(171, 77, 114, 20);
 		frame.getContentPane().add(txtInterprete);
+		
+		frame.setVisible(true);
 	}
 
 	private void remplirChamps(Morceau m) {

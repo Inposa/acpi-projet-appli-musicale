@@ -69,7 +69,8 @@ public class fenetreListeMorceaux {
 		btAjouterMorceau.setBounds(129, 404, 190, 25);
 		btAjouterMorceau.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				//TODO: Appel vers fenêtreMorceaux avec l'action Ajouter
+				fenetreMorceaux fenetre = new fenetreMorceaux();
+				
 			}
 		});
 		frame.getContentPane().setLayout(null);
@@ -93,7 +94,7 @@ public class fenetreListeMorceaux {
 		JButton btModifierLeMorceau = new JButton("Modifier le morceau");
 		btModifierLeMorceau.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				fenetreMorceaux fenetre = new fenetreMorceaux();
+				//fenetreMorceaux fenetre = new fenetreMorceaux();
 			}
 		});
 		btModifierLeMorceau.setEnabled(false);
