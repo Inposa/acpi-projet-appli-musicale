@@ -16,9 +16,9 @@ public class HomeController {
     public List<MorceauModelView> getMorceaux(){
         List<I_Morceau> morceaux = new ArrayList<>();
 
-        morceaux.add(new Morceau("morceau 1"));
-        morceaux.add(new Morceau("morceau 2"));
-        morceaux.add(new Morceau("morceau 3"));
+        morceaux.add(new Morceau("morceau 1", "Inter 1"));
+        morceaux.add(new Morceau("morceau 2", "Inter 2"));
+        morceaux.add(new Morceau("morceau 3", "Inter 3"));
 
         List<MorceauModelView> models = new ArrayList<>();
 
