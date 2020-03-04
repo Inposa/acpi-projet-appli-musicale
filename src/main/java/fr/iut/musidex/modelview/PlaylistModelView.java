@@ -1,6 +1,6 @@
-package fr.iut.musidex.model;
+package fr.iut.musidex.modelview;
 
-public class PlaylistModel {
+public class PlaylistModelView {
     String nom;
     int nbMorceaux;
 

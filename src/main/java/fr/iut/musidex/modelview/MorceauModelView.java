@@ -1,6 +1,6 @@
-package fr.iut.musidex.model;
+package fr.iut.musidex.modelview;
 
-public class MorceauModel {
+public class MorceauModelView {
     String nom;
 
     public String getNom() {

@@ -1,7 +1,8 @@
 package fr.iut.musidex.view;
 
 import fr.iut.musidex.controller.*;
-import fr.iut.musidex.model.*;
+import fr.iut.musidex.view.*;
+import fr.iut.musidex.modelview.*;
 import java.util.List;
 import javax.swing.table.DefaultTableModel;
 
@@ -33,7 +34,7 @@ public class HomeWindow extends javax.swing.JFrame {
         }
     }
     
-    public void LoadPlaylist(List<PlaylistModel> list)
+    public void LoadPlaylist(List<PlaylistModelView> list)
     {
         EmptyTable();
         tableModel.setColumnIdentifiers(new Object[] {"Playlist","Count"});
@@ -46,7 +47,7 @@ public class HomeWindow extends javax.swing.JFrame {
         currentMode = HomeMode.Playlist;
     }
     
-     public void LoadMusic(List<MorceauModel> list)
+     public void LoadMusic(List<MorceauModelView> list)
     {
         EmptyTable();
         tableModel.setColumnIdentifiers(new Object[] {"Title"});
