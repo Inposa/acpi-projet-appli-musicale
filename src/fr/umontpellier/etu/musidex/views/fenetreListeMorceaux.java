@@ -93,7 +93,7 @@ public class fenetreListeMorceaux {
 		JButton btModifierLeMorceau = new JButton("Modifier le morceau");
 		btModifierLeMorceau.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				//TODO: Appel vers fenêtreMorceaux avec l'action Modifier et l'objet du morceau à modif.
+				fenetreMorceaux fenetre = new fenetreMorceaux();
 			}
 		});
 		btModifierLeMorceau.setEnabled(false);
