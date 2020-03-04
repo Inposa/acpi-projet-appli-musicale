@@ -5,7 +5,7 @@ public class Morceau implements I_Morceau {
 	
 	private int id;
 	
-	private String titre;
+	private String nom;
 	private String interprete;
 	
 	private Tonalite tonalite;
@@ -14,9 +14,9 @@ public class Morceau implements I_Morceau {
 	
 	private String lienYT;
 	
-	public Morceau(int id, String titre, String interprete,Tonalite tonalite, float duree) {
+	public Morceau(int id, String nom, String interprete,Tonalite tonalite, float duree) {
 		this.id = id;
-		this.titre = titre;
+		this.nom = nom;
 		this.interprete = interprete;
 		this.tonalite = tonalite;
 		
@@ -26,24 +26,24 @@ public class Morceau implements I_Morceau {
 		this.lienYT = null;
 	}
 	
-	public Morceau(String titre, String interprete,Tonalite tonalite, float duree) {
-		this(++LAST_ID, titre, interprete, tonalite, 0);
+	public Morceau(String nom, String interprete,Tonalite tonalite, float duree) {
+		this(++LAST_ID, nom, interprete, tonalite, 0);
 	}
 
-	public Morceau(String titre, String interprete, Tonalite tonalite) {
-		this(titre, interprete, tonalite, 0);
+	public Morceau(String nom, String interprete, Tonalite tonalite) {
+		this(nom, interprete, tonalite, 0);
 	}
-	public Morceau(String titre, String interprete) {
-		this(titre, interprete, Tonalite.C);
+	public Morceau(String nom, String interprete) {
+		this(nom, interprete, Tonalite.C);
 	}
 	
 	@Override
 	public String getNom() {
-		return this.titre;
+		return this.nom;
 	}
 	@Override
 	public void setNom(String nom) {
-		this.titre = nom;		
+		this.nom = nom;		
 	}
 	
 	@Override
@@ -74,9 +74,11 @@ public class Morceau implements I_Morceau {
 		this.duree = duree;
 	}
 
+	@Override
 	public String getLienYT() {
 		return lienYT;
 	}
+	@Override
 	public void setLienYT(String lienYT) {
 		this.lienYT = lienYT;
 	}
@@ -88,7 +90,7 @@ public class Morceau implements I_Morceau {
 
 	/*@Override
 	public String toString() {
-		return "Morceau: " + this.titre + "| Interprète:" + this.interprete + "| Tonalité:" + this.tonalite;
+		return "Morceau: " + this.nom + "| Interprète:" + this.interprete + "| Tonalité:" + this.tonalite;
 	}*/
 
 }

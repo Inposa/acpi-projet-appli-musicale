@@ -11,6 +11,7 @@ import java.util.List;
 
 import fr.umontpellier.etu.musidex.modele.I_Morceau;
 import fr.umontpellier.etu.musidex.modele.Morceau;
+import fr.umontpellier.etu.musidex.modele.Tonalite;
 
 public class MorceauDAO {
 	
@@ -124,7 +125,18 @@ public class MorceauDAO {
 		try {
 			rs.beforeFirst();
 			while (rs.next()) {
-				
+				int id = rs.getInt("id");
+				String nom = rs.getString("nom");
+				String interprete = rs.getString("interprete");
+				Tonalite tonalite = null;
+				for(Tonalite t : Tonalite.values()) {
+					if(rs.getString("tonalite").equals(t.name()) ) {
+						tonalite = t;
+					}
+				}
+				float duree = rs.getFloat("duree");
+				I_Morceau morceau = new Morceau(nom, interprete, tonalite, duree);
+				morceaux.add(morceau);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
