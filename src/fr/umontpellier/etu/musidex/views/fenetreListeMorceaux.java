@@ -94,7 +94,7 @@ public class fenetreListeMorceaux {
 		JButton btModifierLeMorceau = new JButton("Modifier le morceau");
 		btModifierLeMorceau.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				//fenetreMorceaux fenetre = new fenetreMorceaux();
+				//fenetreMorceaux fenetre = new fenetreMorceaux()
 			}
 		});
 		btModifierLeMorceau.setEnabled(false);
