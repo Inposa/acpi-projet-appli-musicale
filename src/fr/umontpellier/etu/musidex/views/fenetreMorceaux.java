@@ -74,7 +74,7 @@ public class fenetreMorceaux {
 		btAjouterMorceau.setBounds(224, 404, 190, 25);
 		btAjouterMorceau.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				//TODO: Créé le morceau si text bt = "Ajouter le morceau" sinon modifié le morceau.
+				//TODO: Créé le morceau si text bt = "Ajouter le morceau" sinon modifié le morceau
 				
 			}
 		});
@@ -119,7 +119,7 @@ public class fenetreMorceaux {
 		frame.getContentPane().add(lblTonalitOriginale);
 		
 		JLabel lblTonalitJoue = new JLabel("Tonalité Jouée :");
-		lblTonalitJoue.setBounds(525, 46, 114, 15); 
+		lblTonalitJoue.setBounds(525, 46, 114, 15);
 		frame.getContentPane().add(lblTonalitJoue);
 		
 		JButton btVidDuMorceau = new JButton("Vidéo du morceau");
