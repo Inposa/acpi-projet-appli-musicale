@@ -7,35 +7,31 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
-import java.awt.BorderLayout;
-import javax.swing.GroupLayout;
-import javax.swing.GroupLayout.Alignment;
-import java.awt.GridLayout;
-import javax.swing.JPanel;
-import java.awt.Button;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JTextField;
 import java.awt.Font;
-import java.awt.Canvas;
 import java.awt.Desktop;
 
 import javax.swing.JComboBox;
-import javax.swing.JDialog;
-import javax.swing.SwingConstants;
-import javax.swing.DropMode;
 import javax.swing.JTextArea;
+
+import fr.umontpellier.etu.musidex.modele.Morceau;
+import fr.umontpellier.etu.musidex.modele.Tonalite;
 
 public class fenetreMorceaux {
 
 	private JFrame frame;
 	private JTextField txtTitre;
 	private JTextArea txtCommentaire;
+	private String[] tonalites;
 	private JTextField txtLienVideo;
 	private JTextField txtLienPartition;
 	private JTextField txtLienParole;
 	private JTextField txtInterprete;
+	
+	private boolean isEditing;
 
 	/**
 	 * Launch the application.
@@ -52,12 +48,30 @@ public class fenetreMorceaux {
 			}
 		});
 	}
+	
+	private void initTonalites() {
+		int totalTonalites = Tonalite.values().length;
+		this.tonalites = new String[totalTonalites];
+		int i=0;
+		for(Tonalite ton : Tonalite.values()) {
+			tonalites[i] = ton.toString();
+			i++;
+		}
+		System.out.println(this.tonalites);
+	}
 
 	/**
 	 * Create the application.
 	 */
 	public fenetreMorceaux() {
 		initialize();
+		this.isEditing = false;
+	}
+	
+	public fenetreMorceaux(Morceau m) {
+		initialize();
+		remplirChamps(m);
+		this.isEditing = true;
 	}
 
 	/**
@@ -166,11 +180,14 @@ public class fenetreMorceaux {
 		btOuvrirParole.setBounds(524, 158, 212, 25);
 		frame.getContentPane().add(btOuvrirParole);
 		
-		JComboBox cbTonOriginale = new JComboBox();
+		this.initTonalites();
+		
+		JComboBox<String> cbTonOriginale = new JComboBox<String>(this.tonalites);
+		
 		cbTonOriginale.setBounds(453, 46, 54, 20);
 		frame.getContentPane().add(cbTonOriginale);
 		
-		JComboBox cbTonJouee = new JComboBox();
+		JComboBox<String> cbTonJouee = new JComboBox<String>(this.tonalites);
 		cbTonJouee.setBounds(646, 46, 54, 20);
 		frame.getContentPane().add(cbTonJouee);
 		
@@ -209,5 +226,11 @@ public class fenetreMorceaux {
 		txtInterprete.setColumns(10);
 		txtInterprete.setBounds(171, 77, 114, 20);
 		frame.getContentPane().add(txtInterprete);
+	}
+
+	private void remplirChamps(Morceau m) {
+		this.txtTitre.setText(m.getNom());
+		this.txtInterprete.setText(m.getInterprete());
+		this.txtLienVideo.setText(m.getLienYT());
 	}
 }
