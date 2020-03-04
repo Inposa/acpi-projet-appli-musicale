@@ -3,8 +3,11 @@ CREATE TABLE Morceaux (
 	id NUMBER(5),
 	nom VARCHAR(50),
 	interprete VARCHAR(50),
+	paroles VARCHAR(100),
+	partition VARCHAR(100),
 	tonalite VARCHAR(10),
 	duree FLOAT(2),
+	lienYT varchar(100),
 	
 	CONSTRAINT pk_Morceaux PRIMARY KEY (id)
 )
@@ -14,11 +17,14 @@ CREATE TABLE Morceaux (
 CREATE OR REPLACE PROCEDURE insererMorceau(p_id IN Morceaux.id%TYPE,
 								p_nom IN Morceaux.nom%TYPE,
 								p_interprete IN Morceaux.interprete%TYPE,
+								p_paroles IN Morceaux.paroles%TYPE,
+								p_partition IN Morceaux.partition%TYPE,
 								p_tonalite IN Morceaux.tonalite%TYPE,
-								p_duree IN Morceaux.duree%TYPE) IS
+								p_duree IN Morceaux.duree%TYPE,
+								p_lienYT IN Morceaux.lienYT%TYPE) IS
 BEGIN
-	INSERT INTO Morceaux(id, nom, interprete, tonalite, duree)
-		VALUES (p_id, p_nom, p_interprete, p_tonalite, p_duree);
+	INSERT INTO Morceaux(id, nom, interprete, paroles, partition, tonalite, duree, lienYT)
+		VALUES (p_id, p_nom, p_interprete, p_paroles, p_partition, p_tonalite, p_duree, p_lienYT);
 END;
 
 
@@ -26,14 +32,20 @@ END;
 CREATE OR REPLACE PROCEDURE modifierMorceau(p_id IN Morceaux.id%TYPE,
 								p_nom IN Morceaux.nom%TYPE,
 								p_interprete IN Morceaux.interprete%TYPE,
+								p_paroles IN Morceaux.paroles%TYPE,
+								p_partition IN Morceaux.partition%TYPE,
 								p_tonalite IN Morceaux.tonalite%TYPE,
-								p_duree IN Morceaux.duree%TYPE) IS
+								p_duree IN Morceaux.duree%TYPE,
+								p_lienYT IN Morceaux.lienYT%TYPE) IS
 BEGIN
 	UPDATE Morceaux
 	SET nom = p_nom,
 		interprete = p_interprete,
+		paroles = p_paroles,
+		partition = p_partition,
 		tonalite = p_tonalite,
-		duree = p_duree
+		duree = p_duree,
+		lienYT = p_lienYT
 		WHERE id = p_id;
 END;
 

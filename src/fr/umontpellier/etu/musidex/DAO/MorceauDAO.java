@@ -2,7 +2,6 @@ package fr.umontpellier.etu.musidex.DAO;
 
 import java.sql.CallableStatement;
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -41,8 +40,8 @@ public class MorceauDAO {
 		try {
 			st = cn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
 			rs = st.executeQuery(getMorceauxQuery);
-			cstInsererMorceau = cn.prepareCall("{CALL insererMorceau(?,?,?,?,?)}");
-			cstModifierMorceau = cn.prepareCall("{CALL modifierMorceau(?,?,?,?,?)}");
+			cstInsererMorceau = cn.prepareCall("{CALL insererMorceau(?,?,?,?,?,?,?,?)}");
+			cstModifierMorceau = cn.prepareCall("{CALL modifierMorceau(?,?,?,?,?,?,?,?)}");
 			cstModifierMorceau = cn.prepareCall("{CALL supprimerMorceau(?)");
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -67,8 +66,11 @@ public class MorceauDAO {
 		cstInsererMorceau.setInt(1, morceau.getId());
 		cstInsererMorceau.setString(2, morceau.getNom());
 		cstInsererMorceau.setString(3, morceau.getInterprete());
-		cstInsererMorceau.setString(4, morceau.getTonalite().toString());
-		cstInsererMorceau.setFloat(5, morceau.getDuree());
+		cstInsererMorceau.setString(4, morceau.getParoles());
+		cstInsererMorceau.setString(5, morceau.getPartition());
+		cstInsererMorceau.setString(6, morceau.getTonalite().toString());
+		cstInsererMorceau.setFloat(7, morceau.getDuree());
+		cstInsererMorceau.setString(8, morceau.getLienYT());
 		cstInsererMorceau.execute();
 		getMorceauxFromDB();
 	}
@@ -77,8 +79,11 @@ public class MorceauDAO {
 		cstModifierMorceau.setInt(1, morceau.getId());
 		cstModifierMorceau.setString(2, morceau.getNom());
 		cstModifierMorceau.setString(3, morceau.getInterprete());
-		cstModifierMorceau.setString(4, morceau.getTonalite().toString());
-		cstModifierMorceau.setFloat(5, morceau.getDuree());
+		cstModifierMorceau.setString(4, morceau.getParoles());
+		cstModifierMorceau.setString(5, morceau.getPartition());
+		cstModifierMorceau.setString(6, morceau.getTonalite().toString());
+		cstModifierMorceau.setFloat(7, morceau.getDuree());
+		cstModifierMorceau.setString(8, morceau.getLienYT());
 		cstModifierMorceau.execute();
 		getMorceauxFromDB();
 	}
@@ -105,9 +110,12 @@ public class MorceauDAO {
 				int id = rs.getInt("id");
 				String nom = rs.getString("nom");
 				String interprete = rs.getString("interprete");
+				String paroles = rs.getString("paroles");
+				String partition = rs.getString("partition");
 				Tonalite tonalite = Tonalite.valueOf(rs.getString("tonalite"));
 				float duree = rs.getFloat("duree");
-				I_Morceau morceau = new Morceau(id, nom, interprete, tonalite, duree);
+				String lienYT = rs.getString("lienYT");
+				I_Morceau morceau = new Morceau(id, nom, interprete, paroles, partition, tonalite, duree, lienYT);
 				morceaux.add(morceau);
 			}
 		} catch (SQLException e) {

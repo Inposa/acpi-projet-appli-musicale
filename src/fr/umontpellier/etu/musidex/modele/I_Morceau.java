@@ -7,6 +7,12 @@ public interface I_Morceau {
     public String getInterprete();
     public void setInterprete(String interprete);
     
+    public String getParoles();
+    public void setParoles(String paroles);
+    
+    public String getPartition();
+    public void setPartition(String partition);
+    
     public Tonalite getTonalite();
     public void setTonalite(Tonalite tonalite);    
     
