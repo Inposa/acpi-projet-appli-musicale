@@ -1,25 +1,34 @@
 package fr.iut.musidex.entity;
 
 public class Morceau implements I_Morceau {
-	private String titre;
-	private String interprete;
-	
-	private String tonalite;
-	
-	public Morceau(String titre, String interprete) {
-		this.titre = titre;
-                this.interprete = interprete;
-		
-	}
+    private static int compteurId = 0;
 
+    private int id;
 
-	@Override
-	public String getNom() {
-		return titre;
-	}
+    String nom;
 
-	@Override
-	public void setNom(String nom) {
-		titre = nom;
-	}
+    public Morceau() { this.id = ++compteurId; }
+
+    public Morceau(String nom) {
+        this();
+        this.nom = nom;
+    }
+
+    public String getNom() {
+        return nom;
+    }
+
+    public void setNom(String nom) {
+        this.nom = nom;
+    }
+
+    @Override
+    public String toString() {
+        return nom;
+    }
+
+    @Override
+    public int getId() {
+        return id;
+    }
 }

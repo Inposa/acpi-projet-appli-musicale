@@ -3,22 +3,21 @@ package fr.iut.musidex.entity;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Playlist implements I_Playlist{
-
+public class Partie implements I_Partie {
     private static int compteurId = 0;
 
     private int id;
 
     private String nom;
 
-    private List<I_Partie> parties;
+    private List<I_Morceau> morceaux;
 
-    public Playlist() { this.id = ++compteurId; }
+    public Partie() { this.id = ++compteurId; }
 
-    public Playlist(String nom) {
+    public Partie(String nom) {
         this();
         this.nom = nom;
-        parties = new ArrayList<>();
+        morceaux= new ArrayList<>();
     }
 
     @Override
@@ -37,17 +36,17 @@ public class Playlist implements I_Playlist{
     }
 
     @Override
-    public List<I_Partie> getParties() {
-        return parties;
+    public List<I_Morceau> getMorceaux() {
+        return morceaux;
     }
 
     @Override
-    public void ajouterPartie(I_Partie partie) {
-        parties.add(partie);
+    public void ajouterMorceau(I_Morceau morceau) {
+        morceaux.add(morceau);
     }
 
     @Override
-    public void supprimerPartie(I_Partie partie) {
-        parties.remove(partie);
+    public void supprimerMorceau(I_Morceau morceau) {
+        morceaux.remove(morceau);
     }
 }
