@@ -1,34 +1,62 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package fr.iut.musidex.view;
 
 import fr.iut.musidex.controller.*;
 import fr.iut.musidex.model.*;
+import java.util.List;
 import javax.swing.table.DefaultTableModel;
 
-/**
- *
- * @author prigentb
- */
-public class HomeWindow extends javax.swing.JFrame {
 
-    /**
-     * Creates new form NewJFrame
-     */
-    public HomeWindow(HomeController controller) {
+public class HomeWindow extends javax.swing.JFrame {
+    HomeController currentController = null;
+    DefaultTableModel tableModel = null;
+    HomeMode currentMode = null;
+    
+    private enum HomeMode {
+	Playlist,
+        Music
+    }
+
+    public HomeWindow(HomeController controller) 
+    {
         initComponents();
-        int i = 0;
         
-        DefaultTableModel model = (DefaultTableModel) playlistTable.getModel();
-        for (PlaylistModel playlist : controller.getPlaylists()) 
-        {
-            model.addRow(new Object[] {playlist.getNom(),playlist.getCount()});
-            i++;
-        }
+        tableModel = (DefaultTableModel) mainTable.getModel();
+        currentController = controller;
+        LoadPlaylist(currentController.getPlaylists()); 
+        
         this.setVisible(true);
+    }
+    
+    private void EmptyTable(){
+        for (int i = tableModel.getRowCount() -1; i >= 0 ; i--) {
+            tableModel.removeRow(i);
+        }
+    }
+    
+    public void LoadPlaylist(List<PlaylistModel> list)
+    {
+        EmptyTable();
+        tableModel.setColumnIdentifiers(new Object[] {"Playlist","Count"});
+        
+        for (int i = 0; i < list.size(); i++) 
+        {
+            tableModel.addRow(new Object[] {list.get(i).getNom(),list.get(i).getCount()});
+        }
+        
+        currentMode = HomeMode.Playlist;
+    }
+    
+     public void LoadMusic(List<MorceauModel> list)
+    {
+        EmptyTable();
+        tableModel.setColumnIdentifiers(new Object[] {"Title"});
+
+        for (int i = 0; i < list.size(); i++) 
+        {
+            tableModel.addRow(new Object[] {list.get(i).getNom()});
+        }
+        
+        currentMode = HomeMode.Music;
     }
 
     /**
@@ -42,19 +70,20 @@ public class HomeWindow extends javax.swing.JFrame {
 
         scrollPane1 = new java.awt.ScrollPane();
         jScrollPane1 = new javax.swing.JScrollPane();
-        playlistTable = new javax.swing.JTable();
+        mainTable = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
-        jButton2 = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jTextField1 = new javax.swing.JTextField();
+        playlistButton = new javax.swing.JButton();
+        musicButton = new javax.swing.JButton();
+        optionName = new javax.swing.JButton();
+        SearchBar = new javax.swing.JTextField();
+        AddButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         scrollPane1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
-        playlistTable.setModel(new javax.swing.table.DefaultTableModel(
+        mainTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -62,8 +91,8 @@ public class HomeWindow extends javax.swing.JFrame {
                 "Playlist", "Nombre de piste"
             }
         ));
-        playlistTable.setMaximumSize(new java.awt.Dimension(1000, 144));
-        jScrollPane1.setViewportView(playlistTable);
+        mainTable.setMaximumSize(new java.awt.Dimension(1000, 144));
+        jScrollPane1.setViewportView(mainTable);
 
         scrollPane1.add(jScrollPane1);
 
@@ -71,15 +100,25 @@ public class HomeWindow extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(255, 0, 203));
         jLabel1.setText("Mozart Gang");
 
-        jButton2.setText("Playlist");
-        jButton2.setToolTipText("");
-        jButton2.setActionCommand("jgjg");
-        jButton2.setAlignmentY(0.0F);
-        jButton2.setPreferredSize(new java.awt.Dimension(70, 29));
+        playlistButton.setText("Playlist");
+        playlistButton.setToolTipText("");
+        playlistButton.setActionCommand("jgjg");
+        playlistButton.setAlignmentY(0.0F);
+        playlistButton.setPreferredSize(new java.awt.Dimension(70, 29));
+        playlistButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                playlistButtonActionPerformed(evt);
+            }
+        });
 
-        jButton1.setLabel("Musique");
+        musicButton.setLabel("Musique");
+        musicButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                musicButtonActionPerformed(evt);
+            }
+        });
 
-        jButton3.setText("Options");
+        optionName.setText("Options");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -88,72 +127,111 @@ public class HomeWindow extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 106, Short.MAX_VALUE)
-                    .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(playlistButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(musicButton, javax.swing.GroupLayout.DEFAULT_SIZE, 106, Short.MAX_VALUE)
+                    .addComponent(optionName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(23, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, 49, Short.MAX_VALUE)
+                .addComponent(playlistButton, javax.swing.GroupLayout.DEFAULT_SIZE, 49, Short.MAX_VALUE)
                 .addGap(30, 30, 30)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(musicButton, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(31, 31, 31)
-                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(optionName, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(25, 25, 25))
         );
 
-        jTextField1.setText("Rechercher");
+        SearchBar.setText("Rechercher");
+        SearchBar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SearchBarActionPerformed(evt);
+            }
+        });
+
+        AddButton.setText("Add New One");
+        AddButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AddButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(47, 47, 47)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(39, 39, 39)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel1)
                     .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(scrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1031, Short.MAX_VALUE)
-                .addGap(1037, 1037, 1037))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(858, 858, 858)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(scrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 969, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(23, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(AddButton, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(35, 35, 35)
+                        .addComponent(SearchBar, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(46, 46, 46))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(61, 61, 61)
-                        .addComponent(jLabel1)
-                        .addGap(18, 18, 18)
+                        .addGap(104, 104, 104)
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(28, 28, 28)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(21, 21, 21)
+                        .addGap(27, 27, 27)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(SearchBar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(AddButton, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel1))
+                        .addGap(20, 20, 20)
                         .addComponent(scrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(76, Short.MAX_VALUE))
+                .addContainerGap(35, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void playlistButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_playlistButtonActionPerformed
+        LoadPlaylist(currentController.getPlaylists()); 
+    }//GEN-LAST:event_playlistButtonActionPerformed
+
+    private void musicButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_musicButtonActionPerformed
+        LoadMusic(currentController.getMorceaux());
+    }//GEN-LAST:event_musicButtonActionPerformed
+
+    private void SearchBarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SearchBarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_SearchBarActionPerformed
+
+    private void AddButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddButtonActionPerformed
+        if(currentMode == HomeMode.Playlist){
+            System.out.println("Launch add playlist windows");
+        }
+        else if(currentMode == HomeMode.Music) {
+            System.out.println("Launch add music windows");
+        }
+    }//GEN-LAST:event_AddButtonActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
+    private javax.swing.JButton AddButton;
+    private javax.swing.JTextField SearchBar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTable playlistTable;
+    private javax.swing.JTable mainTable;
+    private javax.swing.JButton musicButton;
+    private javax.swing.JButton optionName;
+    private javax.swing.JButton playlistButton;
     private java.awt.ScrollPane scrollPane1;
     // End of variables declaration//GEN-END:variables
 }

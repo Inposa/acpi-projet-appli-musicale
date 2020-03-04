@@ -23,20 +23,26 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="1" attributes="0">
-              <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" attributes="0">
+              <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="1" attributes="0">
                   <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                   <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace max="-2" attributes="0"/>
-              <Component id="scrollPane1" pref="1031" max="32767" attributes="0"/>
-              <EmptySpace min="-2" pref="1037" max="-2" attributes="0"/>
-          </Group>
-          <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="858" max="-2" attributes="0"/>
-              <Component id="jTextField1" min="-2" pref="235" max="-2" attributes="0"/>
-              <EmptySpace max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                      <Component id="scrollPane1" min="-2" pref="969" max="-2" attributes="0"/>
+                      <EmptySpace pref="23" max="32767" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Component id="AddButton" min="-2" pref="133" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
+                      <Component id="SearchBar" min="-2" pref="235" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
+                  </Group>
+              </Group>
           </Group>
       </Group>
     </DimensionLayout>
@@ -45,19 +51,21 @@
           <Group type="102" attributes="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
-                      <EmptySpace min="-2" pref="61" max="-2" attributes="0"/>
-                      <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="104" max="-2" attributes="0"/>
                       <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
-                      <Component id="jTextField1" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="SearchBar" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="AddButton" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
+                          <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                       <Component id="scrollPane1" min="-2" pref="350" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace pref="76" max="32767" attributes="0"/>
+              <EmptySpace pref="35" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -79,7 +87,7 @@
 
           <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
           <SubComponents>
-            <Component class="javax.swing.JTable" name="playlistTable">
+            <Component class="javax.swing.JTable" name="mainTable">
               <Properties>
                 <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                   <Table columnCount="2" rowCount="0">
@@ -118,9 +126,9 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                      <Component id="jButton2" alignment="1" max="32767" attributes="0"/>
-                      <Component id="jButton1" alignment="1" pref="106" max="32767" attributes="0"/>
-                      <Component id="jButton3" alignment="1" max="32767" attributes="0"/>
+                      <Component id="playlistButton" alignment="1" max="32767" attributes="0"/>
+                      <Component id="musicButton" alignment="1" pref="106" max="32767" attributes="0"/>
+                      <Component id="optionName" alignment="1" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace pref="23" max="32767" attributes="0"/>
               </Group>
@@ -130,18 +138,18 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="jButton2" pref="49" max="32767" attributes="0"/>
+                  <Component id="playlistButton" pref="49" max="32767" attributes="0"/>
                   <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
-                  <Component id="jButton1" min="-2" pref="48" max="-2" attributes="0"/>
+                  <Component id="musicButton" min="-2" pref="48" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
-                  <Component id="jButton3" min="-2" pref="49" max="-2" attributes="0"/>
+                  <Component id="optionName" min="-2" pref="49" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JButton" name="jButton2">
+        <Component class="javax.swing.JButton" name="playlistButton">
           <Properties>
             <Property name="text" type="java.lang.String" value="Playlist"/>
             <Property name="toolTipText" type="java.lang.String" value=""/>
@@ -151,23 +159,40 @@
               <Dimension value="[70, 29]"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="playlistButtonActionPerformed"/>
+          </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="jButton1">
+        <Component class="javax.swing.JButton" name="musicButton">
           <Properties>
             <Property name="label" type="java.lang.String" value="Musique"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="musicButtonActionPerformed"/>
+          </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="jButton3">
+        <Component class="javax.swing.JButton" name="optionName">
           <Properties>
             <Property name="text" type="java.lang.String" value="Options"/>
           </Properties>
         </Component>
       </SubComponents>
     </Container>
-    <Component class="javax.swing.JTextField" name="jTextField1">
+    <Component class="javax.swing.JTextField" name="SearchBar">
       <Properties>
         <Property name="text" type="java.lang.String" value="Rechercher"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="SearchBarActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="AddButton">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Add New One"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="AddButtonActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

@@ -31,7 +31,9 @@ public class HomeController {
 
     public List<PlaylistModel> getPlaylists(){
         List<I_Playlist> playlists = new ArrayList<>();
-        playlists.add(new Playlist("Rap Fr"));
+        Playlist playlist1 = new Playlist("Rap Fr");
+        playlist1.ajouterMorceau(new Morceau("morceau 2","James"));
+        playlists.add(playlist1);
         playlists.add(new Playlist("Disco"));
         playlists.add(new Playlist("Dubstep"));
         playlists.add(new Playlist("Comptines et chansons"));
@@ -43,7 +45,4 @@ public class HomeController {
 
         return models;
     }
-
-
-
 }

@@ -1,8 +1,7 @@
 package fr.iut.musidex;
 
-import fr.iut.musidex.controller.HomeController;
-import fr.iut.musidex.view.HomeWindow;
-
+import fr.iut.musidex.controller.*;
+import fr.iut.musidex.view.*;
 /**
  * Hello world!
  *
