@@ -40,4 +40,28 @@ public class GammeMajeur { //FIXME : implement ring buffer java
         }
         return result;
     }
+
+    public static ArrayList<String> getGammeMineur(Tonalite ton){
+        final ArrayList<String> noteMin = new ArrayList<>(
+                Arrays.asList("Do", "Reb", "Re", "Mib", "Mi", "Fa", "Solb", "Sol", "Lab", "La", "Sib", "Si"));
+
+        int i_note = noteMin.indexOf(conv.get(ton));
+
+        ArrayList<String> result = new ArrayList<>();
+        result.add(conv.get(ton));
+        for(int i = 0, j = 0;i<7;i++) {
+            int a = (i_note + j + 1)%12;
+            if (i == 1 || i == 4) {
+                result.add(noteMin.get(a));
+                j++;
+            } else {
+                result.add(noteMin.get(((a+1))%12));
+                j=j+2;
+            }
+        }
+        return result;
+    }
+
+
 }
+
