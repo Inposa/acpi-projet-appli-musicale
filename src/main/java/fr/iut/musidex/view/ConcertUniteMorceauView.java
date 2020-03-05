@@ -128,12 +128,13 @@ public class ConcertUniteMorceauView extends JPanel {
             dialog.setMinimumSize(dm);
             dialog.setResizable(false);
             dialog.setModal(true);
+            dialog.setTitle("Partition");
             dialog.setVisible(true);
         }
     }
 
     private void labelTonaliteMouseClicked(java.awt.event.MouseEvent evt){
-        JOptionPane.showMessageDialog(this, GammeMajeur.getGammeMajeur(Tonalite.A));
+        JOptionPane.showMessageDialog(this, GammeMajeur.getGammeMajeur(Tonalite.A), "Tonalité", JOptionPane.INFORMATION_MESSAGE);
     }
 
     private javax.swing.JTextArea txtInfoComp;
