@@ -1,4 +1,4 @@
-package fr.iut.musidex.DAO;
+package main.java.fr.iut.musidex.DAO;
 
 import java.sql.CallableStatement;
 import java.sql.Connection;
@@ -40,8 +40,8 @@ public class MorceauDAO {
 		try {
 			st = cn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
 			rs = st.executeQuery(getMorceauxQuery);
-			cstInsererMorceau = cn.prepareCall("{CALL insererMorceau(?,?,?,?,?,?,?,?)}");
-			cstModifierMorceau = cn.prepareCall("{CALL modifierMorceau(?,?,?,?,?,?,?,?)}");
+			cstInsererMorceau = cn.prepareCall("{CALL insererMorceau(?,?,?,?,?,?,?,?,?,?,?)}");
+			cstModifierMorceau = cn.prepareCall("{CALL modifierMorceau(?,?,?,?,?,?,?,?,?,?,?)}");
 			cstModifierMorceau = cn.prepareCall("{CALL supprimerMorceau(?)");
 		} catch (SQLException e) {
 			e.printStackTrace();

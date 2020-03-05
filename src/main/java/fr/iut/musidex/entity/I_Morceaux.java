@@ -2,7 +2,6 @@ package fr.iut.musidex.entity;
 
 import java.util.ArrayList;
 
-import fr.iut.musidex.entity.I_Morceau;
 
 public interface I_Morceaux {
 

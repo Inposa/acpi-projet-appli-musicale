@@ -2,8 +2,6 @@ package fr.iut.musidex.entity;
 
 import java.util.ArrayList;
 
-import sun.security.util.Length;
-
 public class Morceaux implements I_Morceaux {
 
 	private ArrayList<I_Morceau> list_morceaux; 
