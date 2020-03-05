@@ -9,11 +9,6 @@ import javax.swing.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
-
-/**
- *
- * @author gaidop
- */
 public class ConcertView extends javax.swing.JFrame {
 
     
@@ -36,8 +31,6 @@ public class ConcertView extends javax.swing.JFrame {
         });
     }
 
-
-    @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
@@ -65,8 +58,6 @@ public class ConcertView extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
 
-    // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTabbedPane tabPanel;
-    // End of variables declaration//GEN-END:variables
 }

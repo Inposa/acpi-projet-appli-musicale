@@ -11,12 +11,7 @@ import java.util.Iterator;
 import java.util.Map;
 
 
-/**
- *
- * @author gaidop
- */
 public class ConcertListMorceauxView extends javax.swing.JPanel {
-    //attribut controleur
     private Map<Integer, String> morceaux = new HashMap<>();
     
     public ConcertListMorceauxView(int idPlaylist) {
@@ -45,11 +40,7 @@ public class ConcertListMorceauxView extends javax.swing.JPanel {
         
         
     }
-       
 
-
- 
-    @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
@@ -89,13 +80,10 @@ public class ConcertListMorceauxView extends javax.swing.JPanel {
         if (evt.getClickCount() == 2) {
             int index = list.locationToIndex(evt.getPoint());
         }
-    }//GEN-LAST:event_listeMorceauxMouseClicked
+    }
 
-
-    // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JScrollPane jScrollPane1;
     private JList<String> listeMorceaux;
-    // End of variables declaration//GEN-END:variables
 
     JList<String> getList() {
         return listeMorceaux;
