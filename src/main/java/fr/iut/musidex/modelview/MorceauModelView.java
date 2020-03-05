@@ -1,13 +1,20 @@
 package fr.iut.musidex.modelview;
 
-import fr.iut.musidex.entity.Tonalite;
-
 public class MorceauModelView {
-    String nom;
+    private String nom;
     private String interprete;
     private String tonalite;
     private String duree;
     private String lienYT;
+    private int id;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public String getNom() {
         return nom;
