@@ -1,15 +1,10 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package fr.iut.musidex.view;
 
 import javax.swing.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
-public class ConcertView extends javax.swing.JFrame {
+public class ConcertView extends JFrame {
     private ConcertListMorceauxView listMorceaux;
     private ConcertUniteMorceauView uniteMorceaux;
     
@@ -24,7 +19,7 @@ public class ConcertView extends javax.swing.JFrame {
         listMrcx.setSelectedIndex(0);
         listMrcx.addMouseListener(new MouseAdapter(){
             public void mouseClicked(MouseEvent evt) {
-                if (evt.getClickCount() == 2) {
+                if (SwingUtilities.isLeftMouseButton(evt) && evt.getClickCount() == 2) {
                     int index = listMrcx.locationToIndex(evt.getPoint());
                     tabPanel.setSelectedIndex(1);
                 } 

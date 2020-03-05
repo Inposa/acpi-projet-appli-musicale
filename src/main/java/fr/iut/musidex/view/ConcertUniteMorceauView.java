@@ -13,8 +13,6 @@ import java.io.IOException;
 
 
 public class ConcertUniteMorceauView extends JPanel {
-
-
     public ConcertUniteMorceauView() {
         initComponents();
         labelAlbumCover.setIcon(setImage("album", labelAlbumCover.getPreferredSize()));
@@ -29,23 +27,23 @@ public class ConcertUniteMorceauView extends JPanel {
             Image.SCALE_SMOOTH);
             return new ImageIcon(dimg);
         } catch (IOException e) {
-            JOptionPane.showMessageDialog(this, "Impossible de charger l'image: " + albumPart);
+            JOptionPane.showMessageDialog(this, "Impossible de charger l'image : " + albumPart);
             return null;
         }
     }
 
     private void initComponents() {
-        labelPlaylist = new JLabel();
-        labelTonalite = new JLabel();
+        lblPlaylist = new JLabel();
+        lblTonalite = new JLabel();
         labelAlbumCover = new JLabel();
         labelPartition = new JLabel();
         labelPartie = new JLabel();
         labelTitre1 = new JLabel();
         txtInfoComp = new javax.swing.JTextArea();
-        labelPlaylist.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
-        labelPlaylist.setText("Nom Playlist");
-        labelTonalite.setText("A Majeur");
-        labelTonalite.addMouseListener(new java.awt.event.MouseAdapter(){
+        lblPlaylist.setFont(new java.awt.Font("Ubuntu", Font.PLAIN, 18)); // NOI18N
+        lblPlaylist.setText("Nom Playlist");
+        lblTonalite.setText("A Majeur");
+        lblTonalite.addMouseListener(new java.awt.event.MouseAdapter(){
             public void mouseClicked(java.awt.event.MouseEvent evt){
                 labelTonaliteMouseClicked(evt);
             }
@@ -59,7 +57,7 @@ public class ConcertUniteMorceauView extends JPanel {
                 labelPartitionMouseClicked(evt);
             }
         });
-        labelPartie.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
+        labelPartie.setFont(new java.awt.Font("Ubuntu", Font.PLAIN, 18)); // NOI18N
         labelPartie.setText("Partie");
         labelTitre1.setText("Titre");
         txtInfoComp.setEditable(false);
@@ -82,8 +80,8 @@ public class ConcertUniteMorceauView extends JPanel {
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                 .addComponent(labelTitre1)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(labelTonalite))
-                            .addComponent(labelPlaylist))
+                                .addComponent(lblTonalite))
+                            .addComponent(lblPlaylist))
                         .addGap(18, 18, 18)
                         .addComponent(labelPartie)
                         .addGap(0, 0, Short.MAX_VALUE))
@@ -97,12 +95,12 @@ public class ConcertUniteMorceauView extends JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(labelPlaylist)
+                            .addComponent(lblPlaylist)
                             .addComponent(labelPartie))
                         .addGap(8, 8, 8)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(labelTitre1)
-                            .addComponent(labelTonalite)))
+                            .addComponent(lblTonalite)))
                     .addComponent(labelAlbumCover, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(8, 8, 8)
                 .addComponent(txtInfoComp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -111,7 +109,7 @@ public class ConcertUniteMorceauView extends JPanel {
                 .addContainerGap())
         );
         labelPartition.setCursor(new Cursor(Cursor.HAND_CURSOR));
-        labelTonalite.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        lblTonalite.setCursor(new Cursor(Cursor.HAND_CURSOR));
     }
 
     private void labelPartitionMouseClicked(java.awt.event.MouseEvent evt) {
@@ -141,7 +139,7 @@ public class ConcertUniteMorceauView extends JPanel {
     private JLabel labelAlbumCover;
     private JLabel labelPartie;
     private JLabel labelPartition;
-    private JLabel labelPlaylist;
+    private JLabel lblPlaylist;
     private JLabel labelTitre1;
-    private JLabel labelTonalite;
+    private JLabel lblTonalite;
 }
