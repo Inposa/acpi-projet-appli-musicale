@@ -1,9 +1,9 @@
-package main.java.fr.iut.musidex.test;
+package fr.iut.musidex.test;
 import static org.junit.Assert.assertTrue;
 
 import org.junit.jupiter.api.Test;
 
-import main.java.fr.iut.musidex.entity.Tonalite;
+import fr.iut.musidex.entity.Tonalite;
 
 
 class TestTonalite {

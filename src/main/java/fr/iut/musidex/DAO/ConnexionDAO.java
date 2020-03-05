@@ -1,4 +1,4 @@
-package main.java.fr.iut.musidex.DAO;
+package fr.iut.musidex.DAO;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

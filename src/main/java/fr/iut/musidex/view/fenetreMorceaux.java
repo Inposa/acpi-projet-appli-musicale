@@ -1,4 +1,4 @@
-package main.java.fr.iut.musidex.view;
+package fr.iut.musidex.view;
 
 import java.awt.EventQueue;
 import java.net.*;
@@ -12,8 +12,8 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JTextField;
 
-import main.java.fr.iut.musidex.entity.Morceau;
-import main.java.fr.iut.musidex.entity.Tonalite;
+import fr.iut.musidex.entity.Morceau;
+import fr.iut.musidex.entity.Tonalite;
 
 import java.awt.Font;
 import java.awt.Desktop;
@@ -34,21 +34,20 @@ public class fenetreMorceaux {
 	private boolean isEditing;
 
 	/**
-	 * Launch the application.
+	 * Create the application.
 	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					fenetreMorceaux window = new fenetreMorceaux();
-					window.frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
+	public fenetreMorceaux() {
+		initialize();
+		this.isEditing = false;
 	}
-	
+
+	public fenetreMorceaux(Morceau m) {
+		initialize();
+		remplirChamps(m);
+		this.isEditing = true;
+	}
+
+
 	private void initTonalites() {
 		int totalTonalites = Tonalite.values().length;
 		this.tonalites = new String[totalTonalites];
@@ -60,30 +59,17 @@ public class fenetreMorceaux {
 		System.out.println(this.tonalites);
 	}
 
-	/**
-	 * Create the application.
-	 */
-	public fenetreMorceaux() {
-		initialize();
-		this.isEditing = false;
-	}
-	
-	public fenetreMorceaux(Morceau m) {
-		initialize();
-		remplirChamps(m);
-		this.isEditing = true;
-	}
 
 	/**
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
+
 		frame = new JFrame();
 		frame.setResizable(false);
 		frame.setAutoRequestFocus(false);
 		frame.setBounds(100, 100, 836, 471);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		
+
 		JButton btAjouterMorceau = new JButton("Ajouter le morceau");
 		if(this.isEditing) 
 			btAjouterMorceau.setText("Confirmer les changements");
@@ -98,7 +84,7 @@ public class fenetreMorceaux {
 		frame.getContentPane().add(btAjouterMorceau);
 		
 		JButton btAnnuler = new JButton("Annuler");
-		btAnnuler.addActionListener(new fenetreMorceauxActionListenerCancel(this.isEditing));
+		btAnnuler.addActionListener(new fenetreMorceauxActionListenerCancel(this.isEditing,frame));
 		btAnnuler.setBounds(425, 404, 190, 25);
 		frame.getContentPane().add(btAnnuler);
 		
@@ -233,4 +219,5 @@ public class fenetreMorceaux {
 		this.txtInterprete.setText(m.getInterprete());
 		this.txtLienVideo.setText(m.getLienYT());
 	}
+
 }

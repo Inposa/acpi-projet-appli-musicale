@@ -1,4 +1,4 @@
-package main.java.fr.iut.musidex.entity;
+package fr.iut.musidex.entity;
 
 public class Morceau implements I_Morceau {
 	private static int LAST_ID = 0;
@@ -54,10 +54,12 @@ public class Morceau implements I_Morceau {
 	public Morceau(String nom, String interprete, String paroles, String partition, String lienYT) {
 		this(nom, interprete, paroles, partition, Tonalite.C, lienYT);
 	}
+
 	public Morceau(String nom, String interprete) {
 		this(nom, interprete, "", "", "");
 	}
-	
+
+
 	@Override
 	public String getNom() {
 		return this.nom;
