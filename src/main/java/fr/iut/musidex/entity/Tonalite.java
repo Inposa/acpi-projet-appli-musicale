@@ -1,4 +1,4 @@
-package main.java.fr.iut.musidex.entity;
+package fr.iut.musidex.entity;
 
 public enum Tonalite {
 	C,

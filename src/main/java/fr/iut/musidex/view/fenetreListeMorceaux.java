@@ -1,4 +1,4 @@
-package main.java.fr.iut.musidex.view;
+package fr.iut.musidex.view;
 
 import java.awt.EventQueue;
 import java.net.*;
@@ -64,8 +64,8 @@ public class fenetreListeMorceaux {
 		frame.setAutoRequestFocus(false);
 		frame.setBounds(100, 100, 836, 471);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		
-		JButton btAjouterMorceau = new JButton("Ajouter un morceau");
+
+		final JButton btAjouterMorceau = new JButton("Ajouter un morceau");
 		btAjouterMorceau.setBounds(129, 404, 190, 25);
 		btAjouterMorceau.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -75,8 +75,8 @@ public class fenetreListeMorceaux {
 		});
 		frame.getContentPane().setLayout(null);
 		frame.getContentPane().add(btAjouterMorceau);
-		
-		JButton btAnnuler = new JButton("Supprimer le morceau");
+
+		final JButton btAnnuler = new JButton("Supprimer le morceau");
 		btAnnuler.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				//TODO: Appel vers fenêtreMorceaux avec l'action Supprimer et l'objet du morceau à suppr
@@ -91,7 +91,7 @@ public class fenetreListeMorceaux {
 		lblInfos.setBounds(331, 12, 200, 15);
 		frame.getContentPane().add(lblInfos);
 		
-		JButton btModifierLeMorceau = new JButton("Modifier le morceau");
+		final JButton btModifierLeMorceau = new JButton("Modifier le morceau");
 		btModifierLeMorceau.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				//fenetreMorceaux fenetre = new fenetreMorceaux()

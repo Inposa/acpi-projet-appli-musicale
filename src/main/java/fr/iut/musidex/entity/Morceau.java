@@ -1,4 +1,4 @@
-package main.java.fr.iut.musidex.entity;
+package fr.iut.musidex.entity;
 
 public class Morceau implements I_Morceau {
 	private static int LAST_ID = 0;

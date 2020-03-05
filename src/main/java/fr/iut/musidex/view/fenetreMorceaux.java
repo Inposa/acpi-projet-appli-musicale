@@ -1,4 +1,4 @@
-package main.java.fr.iut.musidex.view;
+package fr.iut.musidex.view;
 
 import java.awt.EventQueue;
 import java.net.*;
@@ -12,8 +12,8 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JTextField;
 
-import main.java.fr.iut.musidex.entity.Morceau;
-import main.java.fr.iut.musidex.entity.Tonalite;
+import fr.iut.musidex.entity.Morceau;
+import fr.iut.musidex.entity.Tonalite;
 
 import java.awt.Font;
 import java.awt.Desktop;
