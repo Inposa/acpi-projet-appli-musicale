@@ -1,4 +1,4 @@
-package fr.umontpellier.etu.musidex.views;
+package fr.iut.musidex.view;
 
 import java.awt.EventQueue;
 import java.net.*;
@@ -11,14 +11,15 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JTextField;
+
+import fr.iut.musidex.entity.Morceau;
+import fr.iut.musidex.entity.Tonalite;
+
 import java.awt.Font;
 import java.awt.Desktop;
 
 import javax.swing.JComboBox;
 import javax.swing.JTextArea;
-
-import fr.umontpellier.etu.musidex.modele.Morceau;
-import fr.umontpellier.etu.musidex.modele.Tonalite;
 
 public class fenetreMorceaux {
 

@@ -1,11 +1,11 @@
-package fr.umontpellier.etu.musidex.test;
+package fr.iut.musidex.test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
-import fr.umontpellier.etu.musidex.modele.Morceau;
-import fr.umontpellier.etu.musidex.modele.Morceaux;
+import fr.iut.musidex.entity.Morceau;
+import fr.iut.musidex.entity.Morceaux;
 
 class TestMorceaux {
 

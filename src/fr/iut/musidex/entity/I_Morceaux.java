@@ -1,8 +1,8 @@
-package fr.umontpellier.etu.musidex.modele;
+package fr.iut.musidex.entity;
 
 import java.util.ArrayList;
 
-import fr.umontpellier.etu.musidex.modele.I_Morceau;
+import fr.iut.musidex.entity.I_Morceau;
 
 public interface I_Morceaux {
 
