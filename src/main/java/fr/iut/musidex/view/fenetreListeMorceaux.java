@@ -63,7 +63,6 @@ public class fenetreListeMorceaux {
 		frame.setResizable(false);
 		frame.setAutoRequestFocus(false);
 		frame.setBounds(100, 100, 836, 471);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 		final JButton btAjouterMorceau = new JButton("Ajouter un morceau");
 		btAjouterMorceau.setBounds(129, 404, 190, 25);

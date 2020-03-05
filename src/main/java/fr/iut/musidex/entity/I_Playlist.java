@@ -1,12 +1,15 @@
 package fr.iut.musidex.entity;
 
+import java.util.List;
+
 public interface I_Playlist {
     int getId();
 
     String getNom();
     void setNom(String nom);
 
-    I_Morceau[] getMorceaux();
-    void ajouterMorceau(I_Morceau morceau);
-    void supprimerMorceau(I_Morceau morceau);
+    void ajouterPartie(I_Partie partie);
+    void supprimerPartie(I_Partie partie);
+
+    List<I_Partie> getParties();
 }

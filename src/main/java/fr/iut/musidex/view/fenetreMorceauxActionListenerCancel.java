@@ -1,5 +1,6 @@
 package fr.iut.musidex.view;
 
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowEvent;
@@ -12,7 +13,8 @@ public class fenetreMorceauxActionListenerCancel implements ActionListener {
 	private JFrame frame;
 	private String conf;
 	
-	public fenetreMorceauxActionListenerCancel(boolean editing) {
+	public fenetreMorceauxActionListenerCancel(boolean editing, JFrame frame) {
+		this.frame = frame;
 		this.isEditing = editing;
 		if(this.isEditing) {
 			this.conf = "Annuler les changements ?";
@@ -29,7 +31,7 @@ public class fenetreMorceauxActionListenerCancel implements ActionListener {
 	            "Confirmation",
 	            JOptionPane.YES_NO_OPTION);
 		if(result == JOptionPane.YES_OPTION) {
-			frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
+			frame.dispatchEvent(new WindowEvent(this.frame, WindowEvent.WINDOW_CLOSING));
 		}
 	}
 

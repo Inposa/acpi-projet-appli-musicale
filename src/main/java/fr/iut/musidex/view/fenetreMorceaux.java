@@ -78,12 +78,12 @@ public class fenetreMorceaux {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
+
 		frame = new JFrame();
 		frame.setResizable(false);
 		frame.setAutoRequestFocus(false);
 		frame.setBounds(100, 100, 836, 471);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		
+
 		JButton btAjouterMorceau = new JButton("Ajouter le morceau");
 		if(this.isEditing) 
 			btAjouterMorceau.setText("Confirmer les changements");
@@ -98,7 +98,7 @@ public class fenetreMorceaux {
 		frame.getContentPane().add(btAjouterMorceau);
 		
 		JButton btAnnuler = new JButton("Annuler");
-		btAnnuler.addActionListener(new fenetreMorceauxActionListenerCancel(this.isEditing));
+		btAnnuler.addActionListener(new fenetreMorceauxActionListenerCancel(this.isEditing,frame));
 		btAnnuler.setBounds(425, 404, 190, 25);
 		frame.getContentPane().add(btAnnuler);
 		
@@ -233,4 +233,5 @@ public class fenetreMorceaux {
 		this.txtInterprete.setText(m.getInterprete());
 		this.txtLienVideo.setText(m.getLienYT());
 	}
+
 }
