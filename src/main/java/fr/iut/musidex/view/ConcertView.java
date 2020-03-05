@@ -8,9 +8,9 @@ public class ConcertView extends JFrame {
     private ConcertListMorceauxView listMorceaux;
     private ConcertUniteMorceauView uniteMorceaux;
     
-    public ConcertView() {
+    public ConcertView(int idPlaylist) {
         initComponents();
-        listMorceaux = new ConcertListMorceauxView(1);
+        listMorceaux = new ConcertListMorceauxView(idPlaylist);
         uniteMorceaux = new ConcertUniteMorceauView();
         tabPanel.addTab("Liste", listMorceaux);
         tabPanel.addTab("Unité", uniteMorceaux);

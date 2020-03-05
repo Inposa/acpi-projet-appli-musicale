@@ -251,7 +251,7 @@ public class HomeWindow extends javax.swing.JFrame {
     private void concertModeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_concertModeButtonActionPerformed
         if(mainTable.getSelectedRowCount() == 1) {
             int selectedPlaylistId = currentController.getMorceaux().get(mainTable.getSelectedRow()).getId();
-            ConcertView concertWindows = new ConcertView();
+            ConcertView concertWindows = new ConcertView(selectedPlaylistId);
             concertWindows.setVisible(true);
         }
     }//GEN-LAST:event_concertModeButtonActionPerformed

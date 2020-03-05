@@ -5,29 +5,22 @@
  */
 package fr.iut.musidex.view;
 
+import fr.iut.musidex.controller.LiveModeController;
+
 import javax.swing.*;
 import java.awt.*;
-import java.util.HashMap;
 import java.util.Map;
 
 
 public class ConcertListMorceauxView extends JPanel {
-    private Map<Integer, String> morceaux = new HashMap<>();
+
     
     public ConcertListMorceauxView(int idPlaylist) {
-        initComponents();    
-        
-        morceaux.put(1, "Trop beau - Lomepal - 3:30");
-        morceaux.put(2, "Morceau 2 - Artiste - 10:10");
-        morceaux.put(3, "Morceau 3 - Artiste - 10:10");
-        morceaux.put(4, "Morceau 4 - Artiste - 10:10");
-        morceaux.put(5, "Morceau 5 - Artiste - 10:10");
-        
+        Map<Integer, String> morceaux = LiveModeController.getBasicMorceauInfoFromPlaylist(idPlaylist);
+        initComponents();
         
         //model pour la liste
         DefaultListModel<String> model = (DefaultListModel<String>)lstMorceaux.getModel();
-        
-        //morceaux = controlleur.getMorceaux........;
         
         //parcours des morceaux
         for(int morceauID : morceaux.keySet()) {
