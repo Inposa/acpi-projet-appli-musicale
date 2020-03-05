@@ -1,4 +1,4 @@
-package fr.iut.musidex.DAO;
+package main.java.fr.iut.musidex.DAO;
 
 import java.sql.CallableStatement;
 import java.sql.Connection;
@@ -8,9 +8,9 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import fr.iut.musidex.entity.I_Morceau;
-import fr.iut.musidex.entity.Morceau;
-import fr.iut.musidex.entity.Tonalite;
+import main.java.fr.iut.musidex.entity.I_Morceau;
+import main.java.fr.iut.musidex.entity.Morceau;
+import main.java.fr.iut.musidex.entity.Tonalite;
 
 public class MorceauDAO {
 	

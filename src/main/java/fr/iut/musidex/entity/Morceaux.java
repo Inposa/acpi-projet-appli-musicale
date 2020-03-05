@@ -1,4 +1,4 @@
-package fr.iut.musidex.entity;
+package main.java.fr.iut.musidex.entity;
 
 import java.util.ArrayList;
 

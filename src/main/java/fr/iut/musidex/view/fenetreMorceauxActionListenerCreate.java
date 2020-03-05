@@ -1,4 +1,4 @@
-package fr.iut.musidex.view;
+package main.java.fr.iut.musidex.view;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
