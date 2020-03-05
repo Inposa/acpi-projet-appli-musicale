@@ -1,9 +1,9 @@
-package fr.umontpellier.etu.musidex.controllers;
+package fr.iut.musidex.controller;
 import java.sql.SQLException;
 
-import fr.umontpellier.etu.musidex.DAO.MorceauDAO;
-import fr.umontpellier.etu.musidex.modele.*;
-import fr.umontpellier.etu.musidex.views.fenetreMorceaux;
+import fr.iut.musidex.DAO.MorceauDAO;
+import fr.iut.musidex.entity.*;
+import fr.iut.musidex.view.fenetreMorceaux;
 
 public class ControllerMorceau{
 	private Morceau m;

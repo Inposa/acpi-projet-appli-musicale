@@ -1,9 +1,9 @@
-package fr.umontpellier.etu.musidex.test;
+package fr.iut.musidex.test;
 import static org.junit.Assert.assertTrue;
 
 import org.junit.jupiter.api.Test;
 
-import fr.umontpellier.etu.musidex.modele.Tonalite;
+import fr.iut.musidex.entity.Tonalite;
 
 
 class TestTonalite {
