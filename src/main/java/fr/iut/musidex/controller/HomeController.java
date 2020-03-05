@@ -9,6 +9,8 @@ import fr.iut.musidex.modelview.MorceauModelView;
 import fr.iut.musidex.modelview.PlaylistModelView;
 import fr.iut.musidex.entity.Tonalite;
 
+import fr.iut.musidex.view.fenetreListeMorceaux;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -43,5 +45,9 @@ public class HomeController {
         }
 
         return models;
+    }
+
+    public void addMusic() {
+        fenetreListeMorceaux _fenetreListeMorceaux = new fenetreListeMorceaux();
     }
 }

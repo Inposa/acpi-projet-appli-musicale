@@ -244,7 +244,7 @@ public class HomeWindow extends javax.swing.JFrame {
             FenetreCreationPlaylist creationPlaylistWindows = new FenetreCreationPlaylist();
         }
         else if(currentMode == HomeMode.Music) {
-            System.out.println("Launch add music windows");
+            fenetreListeMorceaux _fenetreListeMorceaux = new fenetreListeMorceaux();
         }
     }//GEN-LAST:event_AddButtonActionPerformed
 

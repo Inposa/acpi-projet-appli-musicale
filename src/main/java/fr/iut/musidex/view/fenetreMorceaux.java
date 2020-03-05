@@ -34,21 +34,20 @@ public class fenetreMorceaux {
 	private boolean isEditing;
 
 	/**
-	 * Launch the application.
+	 * Create the application.
 	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					fenetreMorceaux window = new fenetreMorceaux();
-					window.frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
+	public fenetreMorceaux() {
+		initialize();
+		this.isEditing = false;
 	}
-	
+
+	public fenetreMorceaux(Morceau m) {
+		initialize();
+		remplirChamps(m);
+		this.isEditing = true;
+	}
+
+
 	private void initTonalites() {
 		int totalTonalites = Tonalite.values().length;
 		this.tonalites = new String[totalTonalites];
@@ -60,19 +59,6 @@ public class fenetreMorceaux {
 		System.out.println(this.tonalites);
 	}
 
-	/**
-	 * Create the application.
-	 */
-	public fenetreMorceaux() {
-		initialize();
-		this.isEditing = false;
-	}
-	
-	public fenetreMorceaux(Morceau m) {
-		initialize();
-		remplirChamps(m);
-		this.isEditing = true;
-	}
 
 	/**
 	 * Initialize the contents of the frame.
