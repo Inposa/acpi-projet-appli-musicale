@@ -241,10 +241,7 @@ public class HomeWindow extends javax.swing.JFrame {
 
     private void AddButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddButtonActionPerformed
         if(currentMode == HomeMode.Playlist){
-            if(mainTable.getSelectedRowCount() == 1) {
-                int selectedPlaylistId = currentController.getMorceaux().get(mainTable.getSelectedRow()).getId();
                 FenetreCreationPlaylist creationPlaylistWindows = new FenetreCreationPlaylist();
-            }
         }
         else if(currentMode == HomeMode.Music) {
             System.out.println("Launch add music windows");
@@ -252,8 +249,11 @@ public class HomeWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_AddButtonActionPerformed
 
     private void concertModeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_concertModeButtonActionPerformed
-        ConcertView concertWindows = new ConcertView();
-        concertWindows.setVisible(true);
+        if(mainTable.getSelectedRowCount() == 1) {
+            int selectedPlaylistId = currentController.getMorceaux().get(mainTable.getSelectedRow()).getId();
+            ConcertView concertWindows = new ConcertView();
+            concertWindows.setVisible(true);
+        }
     }//GEN-LAST:event_concertModeButtonActionPerformed
 
     private void mainTableFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_mainTableFocusGained
