@@ -34,7 +34,8 @@ public class ConcertUniteMorceauView extends JPanel {
 
     private void initComponents() {
         lblPlaylist = new JLabel();
-        lblTonalite = new JLabel();
+        lblTonaliteMaj = new JLabel();
+        lblTonaliteMin = new JLabel();
         labelAlbumCover = new JLabel();
         labelPartition = new JLabel();
         labelPartie = new JLabel();
@@ -42,10 +43,16 @@ public class ConcertUniteMorceauView extends JPanel {
         txtInfoComp = new javax.swing.JTextArea();
         lblPlaylist.setFont(new java.awt.Font("Ubuntu", Font.PLAIN, 18)); // NOI18N
         lblPlaylist.setText("Nom Playlist");
-        lblTonalite.setText("A Majeur");
-        lblTonalite.addMouseListener(new java.awt.event.MouseAdapter(){
+        lblTonaliteMaj.setText("A Majeur");
+        lblTonaliteMaj.addMouseListener(new java.awt.event.MouseAdapter(){
             public void mouseClicked(java.awt.event.MouseEvent evt){
                 labelTonaliteMouseClicked(evt);
+            }
+        });
+        lblTonaliteMin.setText("/Mineur");
+        lblTonaliteMin.addMouseListener(new java.awt.event.MouseAdapter(){
+            public void mouseClicked(java.awt.event.MouseEvent evt){
+                labelTonaliteMinMouseClicked(evt);
             }
         });
         labelAlbumCover.setPreferredSize(new Dimension(150, 150));
@@ -80,7 +87,8 @@ public class ConcertUniteMorceauView extends JPanel {
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                 .addComponent(labelTitre1)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(lblTonalite))
+                                .addComponent(lblTonaliteMaj)
+                                .addComponent(lblTonaliteMin))
                             .addComponent(lblPlaylist))
                         .addGap(18, 18, 18)
                         .addComponent(labelPartie)
@@ -100,7 +108,8 @@ public class ConcertUniteMorceauView extends JPanel {
                         .addGap(8, 8, 8)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(labelTitre1)
-                            .addComponent(lblTonalite)))
+                            .addComponent(lblTonaliteMaj)
+                            .addComponent(lblTonaliteMin)))
                     .addComponent(labelAlbumCover, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(8, 8, 8)
                 .addComponent(txtInfoComp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -109,7 +118,8 @@ public class ConcertUniteMorceauView extends JPanel {
                 .addContainerGap())
         );
         labelPartition.setCursor(new Cursor(Cursor.HAND_CURSOR));
-        lblTonalite.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        lblTonaliteMaj.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        lblTonaliteMin.setCursor(new Cursor(Cursor.HAND_CURSOR));
     }
 
     private void labelPartitionMouseClicked(java.awt.event.MouseEvent evt) {
@@ -132,7 +142,11 @@ public class ConcertUniteMorceauView extends JPanel {
     }
 
     private void labelTonaliteMouseClicked(java.awt.event.MouseEvent evt){
-        JOptionPane.showMessageDialog(this, GammeMajeur.getGammeMajeur(Tonalite.A), "Tonalité", JOptionPane.INFORMATION_MESSAGE);
+        JOptionPane.showMessageDialog(this, GammeMajeur.getGammeMajeur(Tonalite.A), "Tonalité Majeur", JOptionPane.INFORMATION_MESSAGE);
+    }
+
+    private void labelTonaliteMinMouseClicked(java.awt.event.MouseEvent evt){
+        JOptionPane.showMessageDialog(this, GammeMajeur.getGammeMineur(Tonalite.A), "Tonalité Mineur 3 ans de prison", JOptionPane.INFORMATION_MESSAGE);
     }
 
     private javax.swing.JTextArea txtInfoComp;
@@ -141,5 +155,6 @@ public class ConcertUniteMorceauView extends JPanel {
     private JLabel labelPartition;
     private JLabel lblPlaylist;
     private JLabel labelTitre1;
-    private JLabel lblTonalite;
+    private JLabel lblTonaliteMaj;
+    private JLabel lblTonaliteMin;
 }
