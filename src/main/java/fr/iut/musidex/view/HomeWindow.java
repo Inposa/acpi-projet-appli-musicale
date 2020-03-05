@@ -241,7 +241,10 @@ public class HomeWindow extends javax.swing.JFrame {
 
     private void AddButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddButtonActionPerformed
         if(currentMode == HomeMode.Playlist){
-            FenetreCreationPlaylist creationPlaylistWindows = new FenetreCreationPlaylist();
+            if(mainTable.getSelectedRowCount() == 1) {
+                int selectedPlaylistId = currentController.getMorceaux().get(mainTable.getSelectedRow()).getId();
+                FenetreCreationPlaylist creationPlaylistWindows = new FenetreCreationPlaylist();
+            }
         }
         else if(currentMode == HomeMode.Music) {
             System.out.println("Launch add music windows");
