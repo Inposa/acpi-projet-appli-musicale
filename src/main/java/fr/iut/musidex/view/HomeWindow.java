@@ -44,7 +44,7 @@ public class HomeWindow extends javax.swing.JFrame {
         
         for (int i = 0; i < list.size(); i++) 
         {
-            tableModel.addRow(new Object[] {list.get(i).getNom(),list.get(i).getCount()});
+            tableModel.addRow(new Object[] {list.get(i).getNom(),list.get(i).getNbMorceaux()});
         }
         
         currentMode = HomeMode.Playlist;
