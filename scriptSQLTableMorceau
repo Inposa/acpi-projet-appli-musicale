@@ -23,13 +23,13 @@ CREATE OR REPLACE PROCEDURE insererMorceau(p_id IN Morceau.id%TYPE,
 								p_paroles IN Morceau.paroles%TYPE,
 								p_partition IN Morceau.partition%TYPE,
 								p_tonaliteOriginale IN Morceau.tonaliteOriginale%TYPE,
-								p_tonaliteJouee IN Morceau.tonaliteJouee%TYPE
+								p_tonaliteJouee IN Morceau.tonaliteJouee%TYPE,
 								p_duree IN Morceau.duree%TYPE,
 								p_commentaire IN Morceau.commentaire%TYPE,
 								p_lienYT IN Morceau.lienYT%TYPE,
 								p_image IN Morceau.image%TYPE) IS
 BEGIN
-	INSERT INTO Morceaux(id, nom, interprete, paroles, partition, tonaliteOriginale, tonaliteJouee, duree, commenaire, lienYT, image)
+	INSERT INTO Morceau (id, nom, interprete, paroles, partition, tonaliteOriginale, tonaliteJouee, duree, commentaire, lienYT, image)
 		VALUES (p_id, p_nom, p_interprete, p_paroles, p_partition, p_tonaliteOriginale, p_tonaliteJouee, p_duree, p_commentaire, p_lienYT, p_image);
 END;
 
@@ -41,7 +41,7 @@ CREATE OR REPLACE PROCEDURE modifierMorceau(p_id IN Morceau.id%TYPE,
 								p_paroles IN Morceau.paroles%TYPE,
 								p_partition IN Morceau.partition%TYPE,
 								p_tonaliteOriginale IN Morceau.tonaliteOriginale%TYPE,
-								p_tonaliteJouee IN Morceau.tonaliteJouee%TYPE
+								p_tonaliteJouee IN Morceau.tonaliteJouee%TYPE,
 								p_duree IN Morceau.duree%TYPE,
 								p_commentaire IN Morceau.commentaire%TYPE,
 								p_lienYT IN Morceau.lienYT%TYPE,
@@ -57,13 +57,13 @@ BEGIN
 		duree = p_duree,
 		commentaire = p_commentaire,
 		lienYT = p_lienYT,
-		image = p_image,
+		image = p_image
 		WHERE id = p_id;
 END;
 
 
 
-CREATE OR REPLACE PROCEDURE supprimerMorceau(p_id IN Morceaux.id%TYPE) IS
+CREATE OR REPLACE PROCEDURE supprimerMorceau(p_id IN Morceau.id%TYPE) IS
 BEGIN
 	DELETE FROM Morceau WHERE id = p_id;
 END;
