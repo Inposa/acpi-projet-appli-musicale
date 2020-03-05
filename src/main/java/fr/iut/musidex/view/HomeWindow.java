@@ -44,7 +44,7 @@ public class HomeWindow extends javax.swing.JFrame {
         
         for (int i = 0; i < list.size(); i++) 
         {
-            tableModel.addRow(new Object[] {list.get(i).getNom(),list.get(i).getCount()});
+            tableModel.addRow(new Object[] {list.get(i).getNom(),list.get(i).getNbMorceaux()});
         }
         
         currentMode = HomeMode.Playlist;
@@ -241,7 +241,7 @@ public class HomeWindow extends javax.swing.JFrame {
 
     private void AddButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddButtonActionPerformed
         if(currentMode == HomeMode.Playlist){
-            FenetreCreationPlaylist creationPlaylistWindows = new FenetreCreationPlaylist();
+                FenetreCreationPlaylist creationPlaylistWindows = new FenetreCreationPlaylist();
         }
         else if(currentMode == HomeMode.Music) {
             fenetreListeMorceaux _fenetreListeMorceaux = new fenetreListeMorceaux();
@@ -249,7 +249,11 @@ public class HomeWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_AddButtonActionPerformed
 
     private void concertModeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_concertModeButtonActionPerformed
-        concertForm concertWindows = new concertForm();
+        if(mainTable.getSelectedRowCount() == 1) {
+            int selectedPlaylistId = currentController.getMorceaux().get(mainTable.getSelectedRow()).getId();
+            ConcertView concertWindows = new ConcertView(selectedPlaylistId);
+            concertWindows.setVisible(true);
+        }
     }//GEN-LAST:event_concertModeButtonActionPerformed
 
     private void mainTableFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_mainTableFocusGained
