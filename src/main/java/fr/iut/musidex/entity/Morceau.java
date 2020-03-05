@@ -10,32 +10,46 @@ public class Morceau implements I_Morceau {
 	private String paroles;
 	private String partition;
 	
-	private Tonalite tonalite;
+	private Tonalite tonaliteOriginale;
+	private Tonalite tonaliteJouee;
 	
 	private float duree;
 	
 	private String lienYT;
+	private String image;
+	private String commentaire;
 	
-	public Morceau(int id, String nom, String interprete, String paroles, String partition, Tonalite tonalite, float duree, String lienYT) {
+	public Morceau(int id, String nom, String interprete, String paroles, String partition, Tonalite tonaliteO, Tonalite tonaliteJ, float duree, String lienYT, String image, String commentaire) {
 		this.id = id;
+		
 		this.nom = nom;
 		this.interprete = interprete;
 		this.paroles = paroles;
 		this.partition = partition;		
-		this.tonalite = tonalite;
+		
+		//tonalités C par défaut
+		this.tonaliteOriginale = tonaliteO;
+		this.tonaliteJouee = tonaliteJ;
 		
 		//Durée de 0 par défaut
 		this.duree = duree;
 		
 		this.lienYT = lienYT;
+		this.image = image;
+		this.commentaire = commentaire;
 	}
 	
-	public Morceau(String nom, String interprete, String paroles, String partition, Tonalite tonalite, float duree, String lienYT) {
-		this(++LAST_ID, nom, interprete, paroles, partition, tonalite, duree, lienYT);
+	public Morceau(String nom, String interprete, String paroles, String partition, Tonalite tonaliteO, Tonalite tonaliteJ, float duree, String lienYT, String image, String commentaire) {
+		//nom, interprete, paroles, partition, tonaliteO, tonaliteJ, duree, lien, image
+		this(++LAST_ID, nom, interprete, paroles, partition, tonaliteO, tonaliteJ, duree, lienYT, image, "");
 	}
-
+	public Morceau(String nom, String interprete, String paroles, String partition, Tonalite tonaliteO, Tonalite tonaliteJ, String lienYT) {
+		//nom, interprete, paroles, partition, tonaliteO, tonaliteJ, duree, lien, image
+		this(nom, interprete, paroles, partition, tonaliteO, tonaliteJ, 0, lienYT, "", "");
+	}
 	public Morceau(String nom, String interprete, String paroles, String partition, Tonalite tonalite, String lienYT) {
-		this(nom, interprete, paroles, partition, tonalite, 0, lienYT);
+		//nom, interprete, paroles, partition, tonaliteO, tonaliteJ, duree, lien, image
+		this(nom, interprete, paroles, partition, tonalite, tonalite, 0, lienYT, "", "");
 	}
 	public Morceau(String nom, String interprete, String paroles, String partition, String lienYT) {
 		this(nom, interprete, paroles, partition, Tonalite.C, lienYT);
@@ -81,15 +95,6 @@ public class Morceau implements I_Morceau {
 	}
 
 	@Override
-	public Tonalite getTonalite() {
-		return this.tonalite;
-	}
-	@Override
-	public void setTonalite(Tonalite tonalite) {
-		this.tonalite = tonalite;
-	}
-
-	@Override
 	public float getDuree() {
 		return this.duree;
 	}
@@ -110,6 +115,46 @@ public class Morceau implements I_Morceau {
 	@Override
 	public int getId() {
 		return this.id;
+	}
+	
+	@Override
+	public Tonalite getTonaliteOriginale() {
+		return this.tonaliteOriginale;
+	}
+	@Override
+	public void setTonaliteOriginale(Tonalite tonalite) {
+		this.tonaliteOriginale = tonalite;
+	}
+
+	@Override
+	public Tonalite getTonaliteJouee() {
+		return this.tonaliteJouee;
+	}
+
+	@Override
+	public void setTonaliteJouee(Tonalite tonalite) {
+		this.tonaliteJouee = tonalite;
+	}
+
+	@Override
+	public String getImage() {
+		return this.image;
+	}
+
+	@Override
+	public void setImage(String imageURL) {
+		this.image = imageURL;
+	}
+
+	@Override
+	public String getCommentaire() {
+		return this.commentaire;
+	}
+
+	@Override
+	public void setCommentaire(String commentaire) {
+		this.commentaire = commentaire;
+		
 	}
 
 	/*@Override
