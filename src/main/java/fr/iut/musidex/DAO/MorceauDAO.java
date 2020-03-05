@@ -8,8 +8,8 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import fr.iut.musidex.entity.I_Morceau;
 import fr.iut.musidex.entity.Morceau;
+import fr.iut.musidex.entity.I_Morceau;
 import fr.iut.musidex.entity.Tonalite;
 
 public class MorceauDAO {
