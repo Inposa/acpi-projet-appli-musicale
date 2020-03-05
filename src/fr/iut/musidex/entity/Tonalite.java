@@ -2,10 +2,17 @@ package fr.iut.musidex.entity;
 
 public enum Tonalite {
 	C,
+	Cm,
 	D,
+	Dm,
 	E,
+	Em,
 	F,
+	Fm,
 	G,
+	Gm,
 	A,
-	B
+	Am,
+	B,
+	Bm
 }
