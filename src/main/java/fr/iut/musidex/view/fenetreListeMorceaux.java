@@ -28,31 +28,19 @@ import java.awt.List;
 import java.awt.event.ItemListener;
 import java.awt.event.ItemEvent;
 
-public class fenetreListeMorceaux {
+public class fenetreListeMorceaux extends javax.swing.JFrame {
 
 	private JFrame frame;
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					fenetreListeMorceaux window = new fenetreListeMorceaux();
-					window.frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+
 
 	/**
 	 * Create the application.
 	 */
 	public fenetreListeMorceaux() {
 		initialize();
+
+
 	}
 
 	/**
@@ -115,5 +103,7 @@ public class fenetreListeMorceaux {
 		list.setMultipleSelections(false);
 		list.setBounds(107, 77, 616, 282);
 		frame.getContentPane().add(list);
+		frame.setVisible(true);
+
 	}
 }
