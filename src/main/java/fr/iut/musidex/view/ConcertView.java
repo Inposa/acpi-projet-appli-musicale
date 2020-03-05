@@ -37,7 +37,7 @@ public class ConcertView extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         tabPanel = new javax.swing.JTabbedPane();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
 
         jScrollPane2.setMinimumSize(new java.awt.Dimension(500, 700));
