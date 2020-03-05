@@ -249,7 +249,8 @@ public class HomeWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_AddButtonActionPerformed
 
     private void concertModeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_concertModeButtonActionPerformed
-        concertForm concertWindows = new concertForm();
+        ConcertView concertWindows = new ConcertView();
+        concertWindows.setVisible(true);
     }//GEN-LAST:event_concertModeButtonActionPerformed
 
     private void mainTableFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_mainTableFocusGained
