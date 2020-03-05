@@ -45,6 +45,9 @@ public class Morceau implements I_Morceau {
 		this(nom, interprete, "", "", "");
 	}
 
+	public Morceau(String nom, String interprete, Tonalite tonalite, float duree) {
+		this(nom, interprete, "", "" ,  tonalite, duree, "");
+	}
 
 	@Override
 	public String getNom() {

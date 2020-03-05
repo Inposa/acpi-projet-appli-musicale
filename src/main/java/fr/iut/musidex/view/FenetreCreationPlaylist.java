@@ -6,17 +6,15 @@
 package fr.iut.musidex.view;
 
 import fr.iut.musidex.controller.ControllerCreation;
-import java.util.ArrayList;
-import javax.swing.*;
-
 import fr.iut.musidex.entity.I_Morceau;
 import fr.iut.musidex.entity.Morceau;
 import fr.iut.musidex.entity.Partie;
-import fr.iut.musidex.entity.Playlist;
-import java.util.List;
+
+import javax.swing.*;
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.DefaultTreeModel;
 import javax.swing.tree.MutableTreeNode;
+import java.util.ArrayList;
 
 /**
  *
