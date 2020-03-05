@@ -50,7 +50,7 @@ public class ConcertUniteMorceauView extends JPanel {
         labelPartition = new JLabel();
         labelPartie = new JLabel();
         labelTitre1 = new JLabel();
-        jTextArea1 = new javax.swing.JTextArea();
+        txtInfoComp = new javax.swing.JTextArea();
 
         labelPlaylist.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
         labelPlaylist.setText("Nom Playlist");
@@ -78,11 +78,11 @@ public class ConcertUniteMorceauView extends JPanel {
 
         labelTitre1.setText("Titre");
 
-        jTextArea1.setEditable(false);
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jTextArea1.setText("informations complémentaires\n");
-        jTextArea1.setPreferredSize(new Dimension(400, 100));
+        txtInfoComp.setEditable(false);
+        txtInfoComp.setColumns(20);
+        txtInfoComp.setRows(5);
+        txtInfoComp.setText("informations complémentaires\n");
+        txtInfoComp.setPreferredSize(new Dimension(400, 100));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -104,7 +104,7 @@ public class ConcertUniteMorceauView extends JPanel {
                         .addGap(18, 18, 18)
                         .addComponent(labelPartie)
                         .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jTextArea1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(txtInfoComp, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -122,11 +122,13 @@ public class ConcertUniteMorceauView extends JPanel {
                             .addComponent(labelTonalite)))
                     .addComponent(labelAlbumCover, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(8, 8, 8)
-                .addComponent(jTextArea1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtInfoComp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(labelPartition, javax.swing.GroupLayout.DEFAULT_SIZE, 395, Short.MAX_VALUE)
                 .addContainerGap())
         );
+        labelPartition.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        labelTonalite.setCursor(new Cursor(Cursor.HAND_CURSOR));
     }// </editor-fold>//GEN-END:initComponents
 
     private void labelPartitionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelPartitionMouseClicked
@@ -155,7 +157,7 @@ public class ConcertUniteMorceauView extends JPanel {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JTextArea txtInfoComp;
     private JLabel labelAlbumCover;
     private JLabel labelPartie;
     private JLabel labelPartition;
