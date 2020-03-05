@@ -31,7 +31,6 @@ public class fenetreMorceaux {
 	private JTextField txtLienPartition;
 	private JTextField txtLienParole;
 	private JTextField txtInterprete;
-	
 	private boolean isEditing;
 
 	/**
@@ -86,6 +85,8 @@ public class fenetreMorceaux {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		JButton btAjouterMorceau = new JButton("Ajouter le morceau");
+		if(this.isEditing) 
+			btAjouterMorceau.setText("Confirmer les changements");
 		btAjouterMorceau.setBounds(224, 404, 190, 25);
 		btAjouterMorceau.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -97,11 +98,7 @@ public class fenetreMorceaux {
 		frame.getContentPane().add(btAjouterMorceau);
 		
 		JButton btAnnuler = new JButton("Annuler");
-		btAnnuler.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				//TODO: Annule l'enregistrement du morceau si entrée = "Ajout" sinon annule les modifications si entrée = "Modif"
-			}
-		});
+		btAnnuler.addActionListener(new fenetreMorceauxActionListenerCancel(this.isEditing));
 		btAnnuler.setBounds(425, 404, 190, 25);
 		frame.getContentPane().add(btAnnuler);
 		
