@@ -22,7 +22,7 @@ public class MorceauDAO {
 	private CallableStatement cstSupprimerMorceau;
 	private ResultSet rs;
 	
-	private String getMorceauxQuery = "SELECT m.* FROM Morceaux m";
+	private String getMorceauxQuery = "SELECT m.* FROM Morceau m";
 	
 	private MorceauDAO() {
 		this.cn = ConnexionDAO.getInstance().getConnection();
@@ -63,27 +63,19 @@ public class MorceauDAO {
 	}
 
 	public void insererMorceau(I_Morceau morceau) throws SQLException {
-		cstInsererMorceau.setInt(1, morceau.getId());
-		cstInsererMorceau.setString(2, morceau.getNom());
-		cstInsererMorceau.setString(3, morceau.getInterprete());
-		cstInsererMorceau.setString(4, morceau.getParoles());
-		cstInsererMorceau.setString(5, morceau.getPartition());
-		cstInsererMorceau.setString(6, morceau.getTonalite().toString());
-		cstInsererMorceau.setFloat(7, morceau.getDuree());
-		cstInsererMorceau.setString(8, morceau.getLienYT());
+		setDataIntoCallableStatement(cstInsererMorceau, morceau.getId(), morceau.getNom(), morceau.getInterprete(),
+				morceau.getParoles(), morceau.getPartition(), morceau.getTonaliteOriginale().toString(),
+				morceau.getTonaliteJouee().toString(), morceau.getDuree(), morceau.getCommentaire(),
+				morceau.getLienYT(), morceau.getImage());
 		cstInsererMorceau.execute();
 		getMorceauxFromDB();
 	}
 	
 	public void modifierMorceau(I_Morceau morceau) throws SQLException {
-		cstModifierMorceau.setInt(1, morceau.getId());
-		cstModifierMorceau.setString(2, morceau.getNom());
-		cstModifierMorceau.setString(3, morceau.getInterprete());
-		cstModifierMorceau.setString(4, morceau.getParoles());
-		cstModifierMorceau.setString(5, morceau.getPartition());
-		cstModifierMorceau.setString(6, morceau.getTonalite().toString());
-		cstModifierMorceau.setFloat(7, morceau.getDuree());
-		cstModifierMorceau.setString(8, morceau.getLienYT());
+		setDataIntoCallableStatement(cstModifierMorceau, morceau.getId(), morceau.getNom(), morceau.getInterprete(),
+				morceau.getParoles(), morceau.getPartition(), morceau.getTonaliteOriginale().toString(),
+				morceau.getTonaliteJouee().toString(), morceau.getDuree(), morceau.getCommentaire(),
+				morceau.getLienYT(), morceau.getImage());
 		cstModifierMorceau.execute();
 		getMorceauxFromDB();
 	}
@@ -92,6 +84,27 @@ public class MorceauDAO {
 		cstSupprimerMorceau.setInt(1, morceau.getId());
 		cstSupprimerMorceau.execute();
 		getMorceauxFromDB();
+	}
+	
+	
+	private void setDataIntoCallableStatement(CallableStatement cst, int id, String nom, String interprete,
+			String paroles, String partition, String tonaliteOriginale, String tonaliteJouee,
+			float duree, String commentaire, String lienYT, String image) {
+		try {
+			cst.setInt(1, id);
+			cst.setString(2, nom);
+			cst.setString(3, interprete);
+			cst.setString(4, paroles);
+			cst.setString(5, partition);
+			cst.setString(6, tonaliteOriginale);
+			cst.setString(7, tonaliteJouee);
+			cst.setFloat(8, duree);
+			cstInsererMorceau.setString(9, commentaire);
+			cstInsererMorceau.setString(10, lienYT);
+			cstInsererMorceau.setString(11, image);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
 	
 	private void getMorceauxFromDB() {
